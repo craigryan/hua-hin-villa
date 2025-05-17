@@ -42,7 +42,7 @@ export default function HomePage() {
       <CallToAction
         headline={t('cta.headline')}
         buttonText={t('cta.buttonText')}
-        buttonLink='/the-villa' // Link to the page detailing the main house and guest house
+        buttonLink='/site-options' // Link to the rental options page
       />
 
       {/*

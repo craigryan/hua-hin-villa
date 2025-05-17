@@ -1,5 +1,12 @@
 {
   "greeting": "Hello!",
+  "Error": {
+    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
+    "title": "Something went wrong!"
+  },
+  "Manifest": {
+    "name": "Ban Hua Hin Villa"
+  },
   "HomePage": {
     "headline": "Discover Your Luxury Escape in Hua Hin",
     "subtitle": "A Grand Residence with Private Pool and Unbeatable Location",
@@ -10,9 +17,43 @@
       "buttonText": "Explore the Property"
     }
   },
+  "SiteOptions": {
+    "title": "Rental Options",
+    "exploreProperties": "Explore Our Properties",
+    "options": {
+      "guestHouseOnly": {
+        "title": "Guest House Only",
+        "description": "Perfect for small families or couples, enjoy our cozy 2-bedroom guest house with private entrance.",
+        "price": "From ฿5,000 per night"
+      },
+      "guestHousePool": {
+        "title": "Guest House with Pool Access",
+        "description": "Experience our guest house with the added luxury of pool access during your stay.",
+        "price": "From ฿7,500 per night"
+      },
+      "mainHouse": {
+        "title": "Main Villa",
+        "description": "Indulge in our luxurious 3-bedroom main villa with private pool and spacious living areas.",
+        "price": "From ฿15,000 per night"
+      },
+      "fullProperty": {
+        "title": "Complete Property",
+        "description": "Perfect for large groups, enjoy exclusive access to both the main villa and guest house.",
+        "price": "From ฿20,000 per night"
+      }
+    },
+    "mainVilla": {
+      "title": "Main Villa",
+      "buttonText": "Explore Villa"
+    },
+    "guestHouse": {
+      "title": "Guest House",
+      "buttonText": "Explore Guest House"
+    }
+  },
   "villa": {
     "title": "Enjoy the main Villa",
-    "description": "Escape to a private oasis on a sprawling 1 rai estate, just moments from the vibrant heart of Hua Hin and stunning beaches. Our warm yet grand residence offers unparalleled privacy and a gateway to the best of Thailand's coast."
+    "description": "The main Villa features 3 bedrooms, a large pool, and a spacious living area perfect for your family holiday."
   },
   "guesthouse": {
     "title": "Our guest house",

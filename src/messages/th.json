@@ -1,25 +1,65 @@
 {
   "greeting": "สวัสดี",
+  "Error": {
+    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
+    "title": "Something went wrong!"
+  },
+  "Manifest": {
+    "name": "บ้านหัวหินวิลล่า"
+  },
   "HomePage": {
     "headline": "ค้นพบการพักผ่อนสุดหรูที่หัวหิน",
     "subtitle": "วิลล่าสุดหรูพร้อมสระว่ายน้ำส่วนตัวในทำเลที่ดีที่สุด",
-    "title": "Welcome to Our Exclusive Villa",
-    "description": "Escape to a private oasis on a sprawling 1 rai estate, just moments from the vibrant heart of Hua Hin and stunning beaches. Our warm yet grand residence offers unparalleled privacy and a gateway to the best of Thailand's coast.",
+    "title": "ยินดีต้อนรับสู่วิลล่าสุดหรูของเรา",
+    "description": "หลบหนีสู่โอเอซิสส่วนตัวบนพื้นที่ 1 ไร่ ห่างจากใจกลางเมืองหัวหินและชายหาดที่สวยงามเพียงไม่กี่นาที วิลล่าของเรามอบความเป็นส่วนตัวและเป็นประตูสู่ชายฝั่งที่ดีที่สุดของประเทศไทย",
     "cta": {
-      "headline": "Ready to Plan Your Dream Holiday?",
-      "buttonText": "Explore the Property"
+      "headline": "พร้อมที่จะวางแผนวันหยุดในฝันของคุณหรือยัง?",
+      "buttonText": "สำรวจที่พัก"
+    }
+  },
+  "SiteOptions": {
+    "title": "ตัวเลือกการเช่า",
+    "exploreProperties": "สำรวจที่พักของเรา",
+    "options": {
+      "guestHouseOnly": {
+        "title": "เฉพาะเกสต์เฮาส์",
+        "description": "เหมาะสำหรับครอบครัวเล็กหรือคู่รัก เพลิดเพลินกับเกสต์เฮาส์ 2 ห้องนอนที่แสนสบายพร้อมทางเข้าส่วนตัว",
+        "price": "เริ่มต้นที่ ฿5,000 ต่อคืน"
+      },
+      "guestHousePool": {
+        "title": "เกสต์เฮาส์พร้อมการใช้สระว่ายน้ำ",
+        "description": "สัมผัสประสบการณ์เกสต์เฮาส์พร้อมความหรูหราเพิ่มเติมด้วยการเข้าถึงสระว่ายน้ำระหว่างการเข้าพัก",
+        "price": "เริ่มต้นที่ ฿7,500 ต่อคืน"
+      },
+      "mainHouse": {
+        "title": "วิลล่าหลัก",
+        "description": "เพลิดเพลินกับวิลล่าหลักสุดหรู 3 ห้องนอนพร้อมสระว่ายน้ำส่วนตัวและพื้นที่นั่งเล่นกว้างขวาง",
+        "price": "เริ่มต้นที่ ฿15,000 ต่อคืน"
+      },
+      "fullProperty": {
+        "title": "ที่พักทั้งหมด",
+        "description": "เหมาะสำหรับกลุ่มใหญ่ เพลิดเพลินกับการเข้าถึงทั้งวิลล่าหลักและเกสต์เฮาส์แบบส่วนตัว",
+        "price": "เริ่มต้นที่ ฿20,000 ต่อคืน"
+      }
+    },
+    "mainVilla": {
+      "title": "วิลล่าหลัก",
+      "buttonText": "สำรวจวิลล่า"
+    },
+    "guestHouse": {
+      "title": "เกสต์เฮาส์",
+      "buttonText": "สำรวจเกสต์เฮาส์"
     }
   },
   "villa": {
     "title": "สัมผัสประสบการณ์วิลล่าหลัก",
-    "description": "หลบหนีสู่โอเอซิสส่วนตัวบนพื้นที่กว้างขวาง 1 ไร่ ห่างจากใจกลางเมืองหัวหินและชายหาดที่สวยงามเพียงไม่กี่นาที ที่พักอันอบอุ่นและหรูหราของเรามอบความเป็นส่วนตัวที่ไม่มีใครเทียบและเป็นประตูสู่ชายฝั่งที่ดีที่สุดของประเทศไทย"
+    "description": "วิลล่าหลักมีห้องนอน 3 ห้อง สระว่ายน้ำขนาดใหญ่ และพื้นที่นั่งเล่นกว้างขวางเหมาะสำหรับวันหยุดพักผ่อนกับครอบครัว"
   },
   "guesthouse": {
-    "title": "The guest house",
-    "description": "The Villa comes with it's own guest house with 2 bedrooms for those extra guests."
+    "title": "เกสต์เฮาส์ของเรา",
+    "description": "วิลล่ามาพร้อมกับเกสต์เฮาส์ส่วนตัวที่มีห้องนอน 2 ห้องสำหรับแขกเพิ่มเติม"
   },
   "footer": {
-    "copyright": "Ban Hua Hin Villa"
+    "copyright": "บ้านหัวหินวิลล่า"
   }
 }
-

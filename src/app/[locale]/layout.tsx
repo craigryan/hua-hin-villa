@@ -1,9 +1,21 @@
 import React from 'react';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import {notFound} from 'next/navigation';
-import {routing} from '@/i18n/routing';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
 
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import Navigation from '@/components/Navigation';
+
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -11,28 +23,37 @@ interface LocaleLayoutProps {
 }
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
-  // const { locale: currentLocale } = React.use(params);
-  const {locale} = await params;
-  // const [messages, setMessages] = useState<Record<string, string> | null>(null);
-  
+  const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
-  //if (!messages) {
-  //  return <div>Loading...</div>;
-  //}
+  let messages;
+  try {
+    messages = (await import(`@/messages/${locale}.json`)).default;
+  } catch (error) {
+    notFound();
+  }
 
   return (
-    <NextIntlClientProvider>
-      <div className="min-h-screen">
-        <header className="flex justify-end p-4 bg-gray-200">
-          <LanguageSwitcher />
-        </header>
-        <main className="flex-1">
-          {children}
-        </main>
-      </div>
-    </NextIntlClientProvider>
+    <html lang={locale}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <NextIntlClientProvider messages={messages} locale={locale}>
+          <div className="min-h-screen">
+            <header className="flex justify-between items-center p-4 bg-gray-200">
+              <Navigation />
+              <LanguageSwitcher />
+            </header>
+            <main className="flex-1">
+              {children}
+            </main>
+          </div>
+        </NextIntlClientProvider>
+      </body>
+    </html>
+
   );
 }

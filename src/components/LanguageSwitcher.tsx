@@ -1,8 +1,9 @@
-'use client'; // This component uses client-side hooks
+'use client';
 
 import { useLocale } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React, { ChangeEvent } from 'react';
+import { routing } from '@/i18n/routing';
 
 // Define the structure for our supported locales
 interface SupportedLocale {
@@ -21,16 +22,13 @@ const supportedLocales: SupportedLocale[] = [
 // LanguageSwitcher component
 const LanguageSwitcher: React.FC = () => {
   const router = useRouter();
-  const pathname = usePathname(); // Gets the path without the locale prefix
-  const currentLocale = useLocale(); // Gets the currently active locale
+  const currentLocale = useLocale();
 
   // Handler for when the select value changes
   const onSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = event.target.value;
-    // Remove the current locale from the pathname
-    const newPathname = pathname.replace(`/${currentLocale}`, '');
-    console.log('--> Selected locale:', nextLocale, 'New path:', `/${nextLocale}${newPathname}`); // Debugging log
-    router.push(`/${nextLocale}${newPathname}`);
+    // Navigate to the new locale path
+    router.push(`/${nextLocale}`);
   };
 
   return (
@@ -48,7 +46,7 @@ const LanguageSwitcher: React.FC = () => {
         style={{ paddingLeft: '40px' }} // Make room for the flag image
       >
         {supportedLocales.map((locale) => (
-          <option key={locale.value} value={locale.value} className='flex items-center gap-2'>
+          <option key={locale.value} value={locale.value}>
             {locale.label} ({locale.nativeLabel})
           </option>
         ))}
