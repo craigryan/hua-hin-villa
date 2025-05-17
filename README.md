@@ -1,3 +1,13 @@
+# Hua Hin Property site
+
+Website to showcase the main house, guest house and possible rental options.
+
+Reference for website content
+
+https://github.com/amannn/next-intl/blob/main/examples/example-app-router
+
+# Tech
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

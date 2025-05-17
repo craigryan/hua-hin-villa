@@ -1,7 +1,25 @@
 {
   "greeting": "สวัสดี",
-  "hero": {
-    "headline": "Discover Your Luxury Escape in Hua Hin THAI",
-    "subtitle": "A Grand Residence with Private Pool and Unbeatable Location THAI"
+  "HomePage": {
+    "headline": "ค้นพบการพักผ่อนสุดหรูที่หัวหิน",
+    "subtitle": "วิลล่าสุดหรูพร้อมสระว่ายน้ำส่วนตัวในทำเลที่ดีที่สุด",
+    "title": "Welcome to Our Exclusive Villa",
+    "description": "Escape to a private oasis on a sprawling 1 rai estate, just moments from the vibrant heart of Hua Hin and stunning beaches. Our warm yet grand residence offers unparalleled privacy and a gateway to the best of Thailand's coast.",
+    "cta": {
+      "headline": "Ready to Plan Your Dream Holiday?",
+      "buttonText": "Explore the Property"
+    }
+  },
+  "villa": {
+    "title": "สัมผัสประสบการณ์วิลล่าหลัก",
+    "description": "หลบหนีสู่โอเอซิสส่วนตัวบนพื้นที่กว้างขวาง 1 ไร่ ห่างจากใจกลางเมืองหัวหินและชายหาดที่สวยงามเพียงไม่กี่นาที ที่พักอันอบอุ่นและหรูหราของเรามอบความเป็นส่วนตัวที่ไม่มีใครเทียบและเป็นประตูสู่ชายฝั่งที่ดีที่สุดของประเทศไทย"
+  },
+  "guesthouse": {
+    "title": "The guest house",
+    "description": "The Villa comes with it's own guest house with 2 bedrooms for those extra guests."
+  },
+  "footer": {
+    "copyright": "Ban Hua Hin Villa"
   }
 }
+

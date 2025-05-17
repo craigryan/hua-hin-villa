@@ -13,7 +13,7 @@ import Footer from '../../components/Footer'; // Minimal footer component
 
 // The main component for your landing page
 export default function HomePage() {
-  const t = useTranslations();
+  const t = useTranslations('HomePage');
 
   return (
     <div className='flex flex-col min-h-screen'>
@@ -26,22 +26,22 @@ export default function HomePage() {
       {/* Hero Section: Full-height section with background image and main title */}
       <HeroSection
         // Replace with the path to your actual hero image in the public directory
-        bgImage='/images/hero-villa.jpg'
-        headline={t('hero.headline')} // Use translation keys
-        subtitle={t('hero.subtitle')}
+        bgImage='/images/site_villa_guest_background.jpeg'
+        headline={t('headline')} // Use translation keys
+        subtitle={t('subtitle')}
       />
 
       {/* Property Overview Section: Introduce the villa and its key features */}
       <PropertyOverview
-        title='Welcome to Our Exclusive Villa'
-        description="Escape to a private oasis on a sprawling 1 rai estate, just moments from the vibrant heart of Hua Hin and stunning beaches. Our warm yet grand residence offers unparalleled privacy and a gateway to the best of Thailand's coast."
+        title={t('title')}
+        description={t('description')}
         // You can add props here later for specific features like number of beds, pool size, etc.
       />
 
       {/* Call to Action Section: Encourage users to explore further or inquire */}
       <CallToAction
-        headline='Ready to Plan Your Dream Holiday?'
-        buttonText='Explore the Property'
+        headline={t('cta.headline')}
+        buttonText={t('cta.buttonText')}
         buttonLink='/the-villa' // Link to the page detailing the main house and guest house
       />
 

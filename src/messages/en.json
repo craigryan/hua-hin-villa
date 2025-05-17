@@ -1,7 +1,24 @@
 {
   "greeting": "Hello!",
-  "hero": {
+  "HomePage": {
     "headline": "Discover Your Luxury Escape in Hua Hin",
-    "subtitle": "A Grand Residence with Private Pool and Unbeatable Location"
+    "subtitle": "A Grand Residence with Private Pool and Unbeatable Location",
+    "title": "Welcome to Our Exclusive Villa",
+    "description": "Escape to a private oasis on a sprawling 1 rai estate, just moments from the vibrant heart of Hua Hin and stunning beaches. Our warm yet grand residence offers unparalleled privacy and a gateway to the best of Thailand's coast.",
+    "cta": {
+      "headline": "Ready to Plan Your Dream Holiday?",
+      "buttonText": "Explore the Property"
+    }
+  },
+  "villa": {
+    "title": "Enjoy the main Villa",
+    "description": "Escape to a private oasis on a sprawling 1 rai estate, just moments from the vibrant heart of Hua Hin and stunning beaches. Our warm yet grand residence offers unparalleled privacy and a gateway to the best of Thailand's coast."
+  },
+  "guesthouse": {
+    "title": "Our guest house",
+    "description": "The Villa comes with it's own guest house with 2 bedrooms for those extra guests."
+  },
+  "footer": {
+    "copyright": "Ban Hua Hin Villa"
   }
 }

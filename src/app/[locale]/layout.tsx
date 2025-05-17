@@ -1,42 +1,30 @@
-'use client';
+import React from 'react';
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import {notFound} from 'next/navigation';
+import {routing} from '@/i18n/routing';
 
-import React, { useState } from 'react';
-import { NextIntlClientProvider } from 'next-intl';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }
 
-export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
-  const { locale: currentLocale } = React.use(params);
-  const [messages, setMessages] = useState<Record<string, string> | null>(null);
-
-  React.useEffect(() => {
-    const loadMessages = async () => {
-      try {
-        const loadedMessages = await import(
-          `../../messages/${currentLocale}.json`
-        );
-        setMessages(loadedMessages.default);
-      } catch (error) {
-        console.error(
-          `Could not load messages for locale "${currentLocale}"`,
-          error
-        );
-        setMessages({});
-      }
-    };
-
-    loadMessages();
-  }, [currentLocale]);
-
-  if (!messages) {
-    return <div>Loading...</div>;
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+  // const { locale: currentLocale } = React.use(params);
+  const {locale} = await params;
+  // const [messages, setMessages] = useState<Record<string, string> | null>(null);
+  
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
   }
 
+  //if (!messages) {
+  //  return <div>Loading...</div>;
+  //}
+
   return (
-    <NextIntlClientProvider locale={currentLocale} messages={messages}>
+    <NextIntlClientProvider>
       <div className="min-h-screen">
         <header className="flex justify-end p-4 bg-gray-200">
           <LanguageSwitcher />

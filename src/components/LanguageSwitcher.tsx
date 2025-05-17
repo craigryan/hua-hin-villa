@@ -9,13 +9,13 @@ interface SupportedLocale {
   value: string; // The locale code (e.g., 'en', 'th')
   label: string; // The display name in English
   nativeLabel: string; // The display name in the native language
-  flag: string; // An emoji flag for visual representation
+  flagSrc: string; // Path to the flag image
 }
 
 // List of supported locales with their details
 const supportedLocales: SupportedLocale[] = [
-  { value: 'en', label: 'English', nativeLabel: 'English', flag: '🇺🇸' }, // Using US flag for English, can change if needed
-  { value: 'th', label: 'Thai', nativeLabel: 'ไทย', flag: '🇹🇭' },
+  { value: 'en', label: 'English', nativeLabel: 'English', flagSrc: '/images/flags/gb.svg' },
+  { value: 'th', label: 'Thai', nativeLabel: 'ไทย', flagSrc: '/images/flags/th.svg' },
 ];
 
 // LanguageSwitcher component
@@ -27,8 +27,10 @@ const LanguageSwitcher: React.FC = () => {
   // Handler for when the select value changes
   const onSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = event.target.value;
-    console.log('--> Selected locale:', nextLocale); // Debugging log
-    router.push(`/${nextLocale}${pathname}`);
+    // Remove the current locale from the pathname
+    const newPathname = pathname.replace(`/${currentLocale}`, '');
+    console.log('--> Selected locale:', nextLocale, 'New path:', `/${nextLocale}${newPathname}`); // Debugging log
+    router.push(`/${nextLocale}${newPathname}`);
   };
 
   return (
@@ -39,19 +41,24 @@ const LanguageSwitcher: React.FC = () => {
         divs and state to manage the dropdown visibility.
       */}
       <select
-        value={currentLocale} // Set the current value based on the active locale
-        onChange={onSelectChange} // Call the handler when the value changes
+        value={currentLocale}
+        onChange={onSelectChange}
         className='block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline cursor-pointer'
-        aria-label='Select language' // Accessibility label
+        aria-label='Select language'
+        style={{ paddingLeft: '40px' }} // Make room for the flag image
       >
-        {/* Map through the supported locales to create options */}
         {supportedLocales.map((locale) => (
-          <option key={locale.value} value={locale.value}>
-            {/* Display flag and language names */}
-            {locale.flag} {locale.label} ({locale.nativeLabel})
+          <option key={locale.value} value={locale.value} className='flex items-center gap-2'>
+            {locale.label} ({locale.nativeLabel})
           </option>
         ))}
       </select>
+      {/* Show current flag */}
+      <img
+        src={supportedLocales.find(l => l.value === currentLocale)?.flagSrc}
+        alt={`${currentLocale} flag`}
+        className='absolute left-2 top-1/2 transform -translate-y-1/2 w-6 h-4 object-cover rounded'
+      />
 
       {/* Add a simple arrow icon for the select dropdown */}
       <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
