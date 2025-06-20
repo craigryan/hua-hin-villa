@@ -3,7 +3,7 @@
 // import Image from 'next/image'; // Next.js Image component for optimization
 // import Link from 'next/link';   // Next.js Link component for client-side navigation
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 // Import the components we'll create next
 import HeroSection from '../../components/HeroSection';
@@ -14,6 +14,9 @@ import Footer from '../../components/Footer'; // Minimal footer component
 // The main component for your landing page
 export default function HomePage() {
   const t = useTranslations('HomePage');
+  const locale = useLocale();
+
+  console.log('-----> Home Page locale', locale, t('headline'));
 
   return (
     <div className='flex flex-col min-h-screen'>

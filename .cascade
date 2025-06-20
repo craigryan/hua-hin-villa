@@ -1,0 +1,28 @@
+{
+  "project": {
+    "name": "Hua Hin Villa",
+    "type": "website",
+    "framework": "nextjs",
+    "language": "typescript",
+    "styling": "tailwindcss"
+  },
+  "context": {
+    "defaultLocale": "en",
+    "supportedLocales": ["en", "th"],
+    "features": [
+      "i18n",
+      "responsive-design",
+      "image-optimization"
+    ]
+  },
+  "conventions": {
+    "componentStyle": "functional",
+    "stateManagement": "react-hooks",
+    "routing": "app-router",
+    "naming": {
+      "components": "PascalCase",
+      "functions": "camelCase",
+      "files": "kebab-case"
+    }
+  }
+}

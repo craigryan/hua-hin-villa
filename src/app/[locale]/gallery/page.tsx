@@ -1,50 +1,48 @@
-import React from 'react'; // Import React
-import Footer from '../../../components/Footer'; // Adjust the path based on your structure
+import React from 'react';
+import Footer from '@/components/Footer';
+import ImageCarousel from '@/components/ImageCarousel';
 
-// Define the expected shape of the params prop
 interface PageProps {
   params: {
-    locale: string; // The locale captured by the [locale] dynamic segment
-    // You might add other dynamic segments here if your route has them,
-    // e.g., slug: string;
+    locale: string;
   };
 }
 
-// Generic placeholder component for a route page
-const PlaceholderPage: React.FC<PageProps> = ({ params }) => {
-  // You can access the locale from params
-  const currentLocale = params.locale;
-  const routeSegment =
-    typeof window === 'undefined'
-      ? // On the server, try to infer segment from URL or use a generic name
-        'this route'
-      : // On the client, you could potentially get the path, but for a placeholder,
-        // a generic message is simpler.
-        'this route'; // Keeping it simple for a placeholder
+const villaImages = [
+  { src: '/images/villa_front.jpg', alt: 'Villa Front View' },
+  { src: '/images/villa_front_distance.jpg', alt: 'Villa Front Distance View' },
+  { src: '/images/villa_kitchen.jpg', alt: 'Villa Kitchen' },
+  { src: '/images/villa_pool.jpg', alt: 'Villa Pool' },
+  { src: '/images/villa_pool2.jpg', alt: 'Villa Pool Alternative View' },
+  { src: '/images/villa_pool_view.jpg', alt: 'View from Villa Pool' },
+];
 
+const guestImages = [
+  { src: '/images/guest_from_villa.jpg', alt: 'Guest House from Villa' },
+  { src: '/images/guest_front.jpg', alt: 'Guest House Front' },
+  { src: '/images/guest_pool.jpg', alt: 'Guest House Pool' },
+  { src: '/images/guest_side.jpg', alt: 'Guest House Side View' },
+];
+
+const GalleryPage: React.FC<PageProps> = ({ params }) => {
   return (
     <div className='flex flex-col min-h-screen'>
-      {/*
-        You can add a simple header or title section here later
-        For now, just a basic container.
-      */}
-      <main className='flex-grow container mx-auto px-4 py-16 text-center'>
-        <h1 className='text-3xl md:text-4xl font-bold mb-4 text-gray-800'>
-          Placeholder Page - gallery
-        </h1>
-        <p className='text-lg text-gray-700 mb-8'>
-          Content for {routeSegment} will go here.
-        </p>
-        <p className='text-md text-gray-600'>
-          Current locale: <span className='font-semibold'>{currentLocale}</span>
-        </p>
-        {/* Add more specific placeholder content or components here later */}
-      </main>
+      <main className='flex-grow container mx-auto px-4 py-8 space-y-12'>
+        {/* Main Villa Section */}
+        <section>
+          <h2 className='text-3xl font-semibold mb-6'>Main Villa</h2>
+          <ImageCarousel images={villaImages} className='mb-8' />
+        </section>
 
-      {/* Include the Footer component */}
+        {/* Guest House Section */}
+        <section>
+          <h2 className='text-3xl font-semibold mb-6'>Guest House</h2>
+          <ImageCarousel images={guestImages} className='mb-8' />
+        </section>
+      </main>
       <Footer />
     </div>
   );
 };
 
-export default PlaceholderPage;
+export default GalleryPage;

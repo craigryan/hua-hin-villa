@@ -28,8 +28,11 @@ const LanguageSwitcher: React.FC = () => {
   const onSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = event.target.value;
     // Navigate to the new locale path
+    console.log('-----> new locale', nextLocale);
     router.push(`/${nextLocale}`);
   };
+
+  console.log('-----> current locale', currentLocale);
 
   return (
     <div className='relative inline-block text-gray-700'>
