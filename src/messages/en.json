@@ -9,7 +9,7 @@
   },
   "HomePage": {
     "headline": "Discover Your Luxury Escape in Hua Hin",
-    "subtitle": "A Grand Residence with Private Pool and Unbeatable Location",
+    "subtitle": "Choose Your Perfect Stay: Cozy Two-Bedroom Cottage OR Grand Four-Bedroom Residence with Private Pool - Both in an Unbeatable Location",
     "title": "Welcome to Our Exclusive Villa",
     "description": "Escape to a private oasis on a sprawling 1 Rai (1,600sqm/17,222sq ft) estate, just moments from the vibrant heart of Hua Hin and stunning beaches. Our warm yet grand residence offers unparalleled privacy and a gateway to the best of Thailand's coast.",
     "features": {
@@ -129,6 +129,12 @@
   "Gallery": {
     "villaTitle": "Main Villa Gallery",
     "guestTitle": "Guest House Gallery"
+  },
+  "Navigation": {
+    "propertyName": "Ban Hua Hin Villa, Thailand"
+  },
+  "ThailandMap": {
+    "propertyLocation": "Property Location"
   },
   "footer": {
     "title": "Ban Hua Hin Villa",

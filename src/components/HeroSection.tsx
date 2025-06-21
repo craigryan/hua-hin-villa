@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { WaveDivider } from './ThaiDecorations';
+import ThailandMap from './ThailandMap';
 
 interface HeroSectionProps {
   bgImage: string;
@@ -28,6 +29,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       
       {/* Subtle gradient overlay for text readability */}
       <div className='absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10' />
+      
+      {/* Thailand Map - Top Right Corner */}
+      <div className='absolute top-4 right-4 z-30 hidden md:block'>
+        <ThailandMap />
+      </div>
       
       {/* Content overlay */}
       <div className='relative z-20 text-center px-4 max-w-4xl mx-auto'>
