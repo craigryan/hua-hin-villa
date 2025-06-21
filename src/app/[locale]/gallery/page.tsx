@@ -1,11 +1,15 @@
 import React from 'react';
 import Footer from '@/components/Footer';
 import ImageCarousel from '@/components/ImageCarousel';
+import { getTranslations } from 'next-intl/server';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
+  searchParams?: Promise<{
+    type?: 'villa' | 'guest';
+  }>;
 }
 
 const villaImages = [
@@ -24,20 +28,24 @@ const guestImages = [
   { src: '/images/guest_side.jpg', alt: 'Guest House Side View' },
 ];
 
-const GalleryPage: React.FC<PageProps> = ({ params }) => {
+const GalleryPage: React.FC<PageProps> = async ({ params, searchParams }) => {
+  // const { locale } = await params;
+  const searchParamsResolved = await searchParams;
+  const galleryType = searchParamsResolved?.type || 'villa'; // Default to villa if no type specified
+  
+  // Get translations
+  const t = await getTranslations('Gallery');
+  
+  // Determine which images to show and the title
+  const images = galleryType === 'guest' ? guestImages : villaImages;
+  const title = galleryType === 'guest' ? t('guestTitle') : t('villaTitle');
+
   return (
     <div className='flex flex-col min-h-screen'>
-      <main className='flex-grow container mx-auto px-4 py-8 space-y-12'>
-        {/* Main Villa Section */}
+      <main className='flex-grow container mx-auto px-4 py-8'>
         <section>
-          <h2 className='text-3xl font-semibold mb-6'>Main Villa</h2>
-          <ImageCarousel images={villaImages} className='mb-8' />
-        </section>
-
-        {/* Guest House Section */}
-        <section>
-          <h2 className='text-3xl font-semibold mb-6'>Guest House</h2>
-          <ImageCarousel images={guestImages} className='mb-8' />
+          <h1 className='text-4xl font-bold mb-8 text-center text-gray-800'>{title}</h1>
+          <ImageCarousel images={images} className='mb-8' />
         </section>
       </main>
       <Footer />

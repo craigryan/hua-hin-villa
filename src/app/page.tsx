@@ -3,9 +3,8 @@ import { useLocale } from 'next-intl';
 import {redirect} from 'next/navigation';
 
 // This page only renders when the app is built statically (output: 'export')
-export default async function RootPage() {
-    //const currentLocale = await getLocale();
-    const currentLocale = useLocale();
-    console.log('-----> ROOT PAGE currentLocale', currentLocale);
+export default function RootPage() {
+  //const currentLocale = await getLocale();
+  const currentLocale = useLocale();
   redirect(`/${currentLocale}`);
 }

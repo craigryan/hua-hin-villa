@@ -11,7 +11,21 @@
     "headline": "Discover Your Luxury Escape in Hua Hin",
     "subtitle": "A Grand Residence with Private Pool and Unbeatable Location",
     "title": "Welcome to Our Exclusive Villa",
-    "description": "Escape to a private oasis on a sprawling 1 rai estate, just moments from the vibrant heart of Hua Hin and stunning beaches. Our warm yet grand residence offers unparalleled privacy and a gateway to the best of Thailand's coast.",
+    "description": "Escape to a private oasis on a sprawling 1 Rai (1,600sqm/17,222sq ft) estate, just moments from the vibrant heart of Hua Hin and stunning beaches. Our warm yet grand residence offers unparalleled privacy and a gateway to the best of Thailand's coast.",
+    "features": {
+      "pool": {
+        "title": "Pool",
+        "description": "Private pool facilities"
+      },
+      "gardens": {
+        "title": "Tropical Gardens",
+        "description": "Lush landscaped gardens"
+      },
+      "guestHouse": {
+        "title": "Guest House",
+        "description": "Separate guest accommodation"
+      }
+    },
     "cta": {
       "headline": "Ready to Plan Your Dream Holiday?",
       "buttonText": "Explore the Property"
@@ -19,21 +33,18 @@
   },
   "SiteOptions": {
     "title": "Rental Options",
+    "subtitle": "Choose from our versatile property options: enjoy the luxury of our four-bedroom main villa with private pool, relax in our cozy two-bedroom cottage for a perfect weekend getaway, or book the entire estate for an unforgettable family experience.",
     "exploreProperties": "Explore Our Properties",
+    "exploreDescription": "Take a closer look at each accommodation option to see detailed photos, amenities, and features that will make your stay unforgettable.",
     "options": {
       "guestHouseOnly": {
         "title": "Guest House Only",
         "description": "Perfect for small families or couples, enjoy our cozy 2-bedroom guest house with private entrance.",
         "price": "From ฿5,000 per night"
       },
-      "guestHousePool": {
-        "title": "Guest House with Pool Access",
-        "description": "Experience our guest house with the added luxury of pool access during your stay.",
-        "price": "From ฿7,500 per night"
-      },
       "mainHouse": {
         "title": "Main Villa",
-        "description": "Indulge in our luxurious 3-bedroom main villa with private pool and spacious living areas.",
+        "description": "Indulge in our luxurious 4-bedroom main villa with private pool and spacious living areas.",
         "price": "From ฿15,000 per night"
       },
       "fullProperty": {
@@ -52,14 +63,77 @@
     }
   },
   "villa": {
-    "title": "Enjoy the main Villa",
-    "description": "The main Villa features 3 bedrooms, a large pool, and a spacious living area perfect for your family holiday."
+    "title": "Main Villa",
+    "description": "The main Villa features 4 bedrooms, a large pool, and a spacious living area perfect for your family holiday.",
+    "featuresTitle": "Villa Features & Amenities",
+    "featuresDescription": "Experience luxury living with our carefully curated amenities and features designed for the perfect getaway.",
+    "features": {
+      "bedrooms": {
+        "title": "4 Bedrooms",
+        "description": "Spacious bedrooms with premium bedding"
+      },
+      "pool": {
+        "title": "Private Pool",
+        "description": "Large swimming pool with poolside relaxation area"
+      },
+      "living": {
+        "title": "Open Living Space",
+        "description": "Expansive living and dining areas"
+      },
+      "kitchen": {
+        "title": "Full Kitchen",
+        "description": "Modern kitchen with all appliances"
+      },
+      "aircon": {
+        "title": "Air Conditioning",
+        "description": "Climate control throughout the villa"
+      },
+      "wifi": {
+        "title": "High-Speed WiFi",
+        "description": "Complimentary internet access"
+      }
+    }
   },
   "guesthouse": {
-    "title": "Our guest house",
-    "description": "The Villa comes with it's own guest house with 2 bedrooms for those extra guests."
+    "title": "Guest House",
+    "description": "The Villa comes with it's own guest house with 2 bedrooms for those extra guests.",
+    "featuresTitle": "Guest House Features",
+    "featuresDescription": "Comfortable and private accommodation with all the essentials for a perfect stay.",
+    "features": {
+      "bedrooms": {
+        "title": "2 Bedrooms",
+        "description": "Cozy bedrooms with comfortable bedding"
+      },
+      "entrance": {
+        "title": "Private Entrance",
+        "description": "Independent access for complete privacy"
+      },
+      "kitchenette": {
+        "title": "Kitchenette",
+        "description": "Basic cooking facilities and refrigerator"
+      },
+      "bathroom": {
+        "title": "Private Bathroom",
+        "description": "Full bathroom with modern fixtures"
+      },
+      "aircon": {
+        "title": "Air Conditioning",
+        "description": "Climate control for comfort"
+      },
+      "wifi": {
+        "title": "WiFi Access",
+        "description": "Complimentary internet connection"
+      }
+    }
+  },
+  "Gallery": {
+    "villaTitle": "Main Villa Gallery",
+    "guestTitle": "Guest House Gallery"
   },
   "footer": {
-    "copyright": "Ban Hua Hin Villa"
+    "title": "Ban Hua Hin Villa",
+    "copyright": "Ban Hua Hin Villa",
+    "allRightsReserved": "All rights reserved",
+    "tagline": "Experience luxury in the heart of Hua Hin"
   }
 }

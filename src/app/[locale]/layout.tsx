@@ -33,6 +33,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   try {
     messages = (await import(`@/messages/${locale}.json`)).default;
   } catch (error) {
+    console.error(`Failed to load messages for locale: ${locale}`, error);
     notFound();
   }
 

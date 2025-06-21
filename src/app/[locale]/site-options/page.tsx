@@ -4,12 +4,28 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
+import Footer from '../../../components/Footer';
 
-const RentalOption = ({ title, description, price }: { title: string; description: string; price: string }) => (
-  <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-    <h3 className="text-xl font-semibold mb-2">{title}</h3>
-    <p className="text-gray-600 mb-4">{description}</p>
-    <p className="text-lg font-bold text-indigo-600">{price}</p>
+const RentalOption = ({ 
+  title, 
+  description, 
+  price, 
+  icon 
+}: { 
+  title: string; 
+  description: string; 
+  price: string;
+  icon: string;
+}) => (
+  <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-200 p-6 group">
+    <div className="flex items-center mb-3">
+      <span className="text-2xl mr-3">{icon}</span>
+      <h3 className="text-xl font-semibold text-gray-800 group-hover:text-thai-teal-dark transition-colors">{title}</h3>
+    </div>
+    <p className="text-gray-600 mb-4 leading-relaxed">{description}</p>
+    <div className="rounded-lg p-3 border-l-4" style={{ backgroundColor: '#1F6B6B', borderLeftColor: '#D4AF37' }}>
+      <p className="text-lg font-bold text-white">{price}</p>
+    </div>
   </div>
 );
 
@@ -24,21 +40,25 @@ const PropertyCard = ({
   link: string; 
   buttonText: string;
 }) => (
-  <div className="relative group overflow-hidden rounded-lg">
+  <div className="relative group overflow-hidden rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
     <Image
       src={image}
       alt={title}
       width={600}
-      height={400}
-      className="w-full h-[400px] object-cover transition-transform duration-300 group-hover:scale-105"
+      height={360}
+      className="w-full h-[360px] object-cover transition-transform duration-500 group-hover:scale-103"
     />
-    <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      <h3 className="text-white text-2xl font-bold mb-4">{title}</h3>
+    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
+    <div className="absolute bottom-0 left-0 right-0 p-6">
+      <h3 className="text-white text-xl font-semibold mb-3">{title}</h3>
       <Link
         href={link}
-        className="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100 transition-colors"
+        className="inline-flex items-center bg-thai-gold hover:bg-thai-gold-light text-thai-teal-dark font-medium px-4 py-2 rounded-lg transition-colors duration-200 text-sm"
       >
         {buttonText}
+        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
       </Link>
     </div>
   </div>
@@ -48,28 +68,33 @@ export default function SiteOptionsPage() {
   const t = useTranslations('SiteOptions');
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-12">{t('title')}</h1>
+    <div className="min-h-screen bg-gradient-to-b from-thai-cream/30 to-white">
+      <div className="max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        {/* Page Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg">{t('title')}</h1>
+          <div className="w-24 h-1 bg-thai-gold mx-auto rounded-full mb-6" />
+          <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
+            {t('subtitle')}
+          </p>
+        </div>
         
         {/* Rental Options */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
           <RentalOption
+            icon="🏡"
             title={t('options.guestHouseOnly.title')}
             description={t('options.guestHouseOnly.description')}
             price={t('options.guestHouseOnly.price')}
           />
           <RentalOption
-            title={t('options.guestHousePool.title')}
-            description={t('options.guestHousePool.description')}
-            price={t('options.guestHousePool.price')}
-          />
-          <RentalOption
+            icon="🏖️"
             title={t('options.mainHouse.title')}
             description={t('options.mainHouse.description')}
             price={t('options.mainHouse.price')}
           />
           <RentalOption
+            icon="🏘️"
             title={t('options.fullProperty.title')}
             description={t('options.fullProperty.description')}
             price={t('options.fullProperty.price')}
@@ -77,8 +102,14 @@ export default function SiteOptionsPage() {
         </div>
 
         {/* Property Navigation Cards */}
-        <h2 className="text-3xl font-semibold text-center mb-8">{t('exploreProperties')}</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">{t('exploreProperties')}</h2>
+          <div className="w-20 h-1 bg-thai-teal mx-auto rounded-full mb-6" />
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            {t('exploreDescription')}
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           <PropertyCard
             image="/images/villa_front.jpg"
             title={t('mainVilla.title')}
@@ -93,6 +124,8 @@ export default function SiteOptionsPage() {
           />
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 }

@@ -16,8 +16,6 @@ export default function HomePage() {
   const t = useTranslations('HomePage');
   const locale = useLocale();
 
-  console.log('-----> Home Page locale', locale, t('headline'));
-
   return (
     <div className='flex flex-col min-h-screen'>
       {/*

@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import React from 'react'; // Import React
+import React from 'react';
+import { WaveDivider } from './ThaiDecorations';
 
 interface HeroSectionProps {
   bgImage: string;
@@ -19,22 +20,30 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <Image
         src={bgImage}
         alt='Luxury Villa Background'
-        layout='fill' // Fill the parent container
-        objectFit='cover' // Cover the container while maintaining aspect ratio
-        quality={90} // Image quality
-        className='z-[-1]' // Position behind text content
+        fill
+        className='object-cover z-0'
+        quality={90}
+        priority
       />
-      {/* Overlay content */}
-      <div className='text-center px-4 z-10 bg-black bg-opacity-30 p-6 rounded-lg'>
-        {' '}
-        {/* Added a subtle overlay for text readability */}
-        <h1 className='text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg'>
-          {headline}
-        </h1>{' '}
-        {/* Added drop shadow for text */}
-        <p className='text-xl md:text-2xl drop-shadow-lg'>{subtitle}</p>{' '}
-        {/* Added drop shadow for text */}
-        {/* You could add a button here if you want a primary CTA */}
+      
+      {/* Subtle gradient overlay for text readability */}
+      <div className='absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10' />
+      
+      {/* Content overlay */}
+      <div className='relative z-20 text-center px-4 max-w-4xl mx-auto'>
+        <div className='bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-thai-gold/40'>
+          <h1 className='text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg'>
+            {headline}
+          </h1>
+          <p className='text-lg md:text-xl drop-shadow-lg font-light leading-relaxed text-thai-cream'>
+            {subtitle}
+          </p>
+        </div>
+      </div>
+      
+      {/* Bottom wave transition */}
+      <div className='absolute bottom-0 left-0 right-0 z-30'>
+        <WaveDivider color="cream" />
       </div>
     </div>
   );

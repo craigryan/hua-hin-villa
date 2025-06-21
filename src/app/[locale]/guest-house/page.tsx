@@ -1,50 +1,45 @@
-import React from 'react'; // Import React
-import Footer from '../../../components/Footer'; // Adjust the path based on your structure
+import React from 'react';
+import { getTranslations } from 'next-intl/server';
+import PropertyPage from '@/components/PropertyPage';
 
 // Define the expected shape of the params prop
 interface PageProps {
-  params: {
-    locale: string; // The locale captured by the [locale] dynamic segment
-    // You might add other dynamic segments here if your route has them,
-    // e.g., slug: string;
-  };
+  params: Promise<{
+    locale: string;
+  }>;
 }
 
-// Generic placeholder component for a route page
-const PlaceholderPage: React.FC<PageProps> = ({ params }) => {
-  // You can access the locale from params
-  const currentLocale = params.locale;
-  const routeSegment =
-    typeof window === 'undefined'
-      ? // On the server, try to infer segment from URL or use a generic name
-        'this route'
-      : // On the client, you could potentially get the path, but for a placeholder,
-        // a generic message is simpler.
-        'this route'; // Keeping it simple for a placeholder
+// Guest house images (same as from gallery page)
+const guestImages = [
+  { src: '/images/guest_from_villa.jpg', alt: 'Guest House from Villa' },
+  { src: '/images/guest_front.jpg', alt: 'Guest House Front' },
+  { src: '/images/guest_pool.jpg', alt: 'Guest House Pool' },
+  { src: '/images/guest_side.jpg', alt: 'Guest House Side View' },
+];
+
+// Guest house features configuration
+const guestFeatures = [
+  { icon: '🛏️', titleKey: 'features.bedrooms.title', descriptionKey: 'features.bedrooms.description' },
+  { icon: '🚪', titleKey: 'features.entrance.title', descriptionKey: 'features.entrance.description' },
+  { icon: '🍳', titleKey: 'features.kitchenette.title', descriptionKey: 'features.kitchenette.description' },
+  { icon: '🚿', titleKey: 'features.bathroom.title', descriptionKey: 'features.bathroom.description' },
+  { icon: '❄️', titleKey: 'features.aircon.title', descriptionKey: 'features.aircon.description' },
+  { icon: '📶', titleKey: 'features.wifi.title', descriptionKey: 'features.wifi.description' },
+];
+
+// Mark the component as async to use server-side translations
+async function GuestHousePage({}: PageProps) {
+  // Get the translations using the server-side method
+  const t = await getTranslations('guesthouse');
 
   return (
-    <div className='flex flex-col min-h-screen'>
-      {/*
-        You can add a simple header or title section here later
-        For now, just a basic container.
-      */}
-      <main className='flex-grow container mx-auto px-4 py-16 text-center'>
-        <h1 className='text-3xl md:text-4xl font-bold mb-4 text-gray-800'>
-          Placeholder Page - guest house
-        </h1>
-        <p className='text-lg text-gray-700 mb-8'>
-          Content for {routeSegment} will go here.
-        </p>
-        <p className='text-md text-gray-600'>
-          Current locale: <span className='font-semibold'>{currentLocale}</span>
-        </p>
-        {/* Add more specific placeholder content or components here later */}
-      </main>
-
-      {/* Include the Footer component */}
-      <Footer />
-    </div>
+    <PropertyPage
+      title={t('title')}
+      images={guestImages}
+      features={guestFeatures}
+      t={t}
+    />
   );
 };
 
-export default PlaceholderPage;
+export default GuestHousePage;

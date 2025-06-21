@@ -3,17 +3,17 @@ import Footer from '../../../components/Footer'; // Adjust the path based on you
 
 // Define the expected shape of the params prop
 interface PageProps {
-  params: {
+  params: Promise<{
     locale: string; // The locale captured by the [locale] dynamic segment
     // You might add other dynamic segments here if your route has them,
     // e.g., slug: string;
-  };
+  }>;
 }
 
 // Generic placeholder component for a route page
-const PlaceholderPage: React.FC<PageProps> = ({ params }) => {
+const PlaceholderPage: React.FC<PageProps> = async ({ params }) => {
   // You can access the locale from params
-  const currentLocale = params.locale;
+  const { locale: currentLocale } = await params;
   const routeSegment =
     typeof window === 'undefined'
       ? // On the server, try to infer segment from URL or use a generic name

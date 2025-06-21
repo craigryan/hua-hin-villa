@@ -1,9 +1,9 @@
 'use client';
 
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import React, { ChangeEvent } from 'react';
-import { routing } from '@/i18n/routing';
+import Image from 'next/image';
 
 // Define the structure for our supported locales
 interface SupportedLocale {
@@ -22,17 +22,19 @@ const supportedLocales: SupportedLocale[] = [
 // LanguageSwitcher component
 const LanguageSwitcher: React.FC = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const currentLocale = useLocale();
 
   // Handler for when the select value changes
   const onSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = event.target.value;
-    // Navigate to the new locale path
-    console.log('-----> new locale', nextLocale);
-    router.push(`/${nextLocale}`);
+    
+    // Get the current path without the locale prefix
+    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '') || '';
+    
+    // Navigate to the same page but with the new locale
+    router.push(`/${nextLocale}${pathWithoutLocale}`);
   };
-
-  console.log('-----> current locale', currentLocale);
 
   return (
     <div className='relative inline-block text-gray-700'>
@@ -55,9 +57,11 @@ const LanguageSwitcher: React.FC = () => {
         ))}
       </select>
       {/* Show current flag */}
-      <img
-        src={supportedLocales.find(l => l.value === currentLocale)?.flagSrc}
+      <Image
+        src={supportedLocales.find(l => l.value === currentLocale)?.flagSrc || '/images/flags/gb.svg'}
         alt={`${currentLocale} flag`}
+        width={24}
+        height={16}
         className='absolute left-2 top-1/2 transform -translate-y-1/2 w-6 h-4 object-cover rounded'
       />
 
