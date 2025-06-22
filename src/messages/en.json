@@ -28,7 +28,8 @@
     },
     "cta": {
       "headline": "Ready to Plan Your Dream Holiday?",
-      "buttonText": "Explore the Property"
+      "buttonText": "Explore the Property",
+      "description": "Experience the perfect blend of luxury and Thai hospitality in our exclusive villa retreat."
     }
   },
   "SiteOptions": {
@@ -134,7 +135,8 @@
     "propertyName": "Ban Hua Hin Villa, Thailand"
   },
   "ThailandMap": {
-    "propertyLocation": "Property Location"
+    "propertyLocation": "Property Location",
+    "locationDescription": "Wang Pong, 5km south of Hua Hin"
   },
   "footer": {
     "title": "Ban Hua Hin Villa",

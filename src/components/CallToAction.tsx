@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import { ThaiPattern, DecorativeBorder } from './ThaiDecorations';
 
 interface CallToActionProps {
@@ -14,6 +15,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
   buttonText,
   buttonLink,
 }) => {
+  const t = useTranslations('HomePage.cta');
   return (
     <section className='relative py-20 bg-thai-teal text-white text-center overflow-hidden'>
       {/* Thai pattern background */}
@@ -57,7 +59,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
           </Link>
           
           <p className='text-thai-cream text-lg font-light max-w-2xl mx-auto mt-8'>
-            Experience the perfect blend of luxury and Thai hospitality in our exclusive villa retreat.
+            {t('description')}
           </p>
         </div>
         
