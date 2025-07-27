@@ -23,15 +23,15 @@ const PropertyPage: React.FC<PropertyPageProps> = ({
   t
 }) => {
   return (
-    <div className='flex flex-col min-h-screen bg-gradient-to-b from-thai-cream/20 to-white'>
+    <div className='flex flex-col min-h-screen' style={{ background: 'linear-gradient(to bottom, #fafaf9 0%, #ffffff 100%)' }}>
       <main className='flex-grow'>
         {/* Header Section */}
-        <div className='bg-gradient-to-r from-thai-teal to-thai-teal-light py-16'>
+        <div className='py-16' style={{ backgroundColor: '#2c2c2c' }}>
           <div className='container mx-auto px-4'>
-            <h1 className='text-4xl md:text-5xl font-bold text-center text-white mb-4 drop-shadow-lg'>
+            <h1 className='text-4xl md:text-5xl font-light text-center text-white mb-4'>
               {title}
             </h1>
-            <div className="w-24 h-1 bg-thai-gold mx-auto rounded-full" />
+            <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           </div>
         </div>
 
@@ -43,14 +43,14 @@ const PropertyPage: React.FC<PropertyPageProps> = ({
         </section>
 
         {/* Property Features Section */}
-        <section className='py-16 bg-thai-subtle'>
+        <section className='py-16 bg-neutral-50'>
           <div className='container mx-auto px-4 max-w-6xl'>
             <div className='text-center mb-12'>
-              <h2 className='text-3xl md:text-4xl font-bold text-thai-teal-dark mb-4'>
+              <h2 className='text-3xl md:text-4xl font-light text-neutral-800 mb-4'>
                 {t('featuresTitle')}
               </h2>
-              <div className="w-20 h-1 bg-thai-gold mx-auto rounded-full mb-6" />
-              <p className='text-lg text-thai-teal max-w-3xl mx-auto leading-relaxed'>
+              <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6" />
+              <p className='text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed'>
                 {t('featuresDescription')}
               </p>
             </div>

@@ -6,7 +6,7 @@ const ThailandMap: React.FC = () => {
   const locale = useLocale();
 
   return (
-    <div className="bg-white/90 backdrop-blur-md rounded-xl p-4 shadow-lg border border-thai-gold/30">
+    <div className="bg-white/90 backdrop-blur-md rounded-xl p-4 shadow-lg border border-primary/30">
       <h3 className="text-sm font-semibold text-gray-800 mb-3 text-center">
         {t('propertyLocation')}
       </h3>
@@ -22,7 +22,7 @@ const ThailandMap: React.FC = () => {
           className="rounded-lg">
         </iframe>
         {/* Distance indicator */}
-        <div className="absolute bottom-0 left-0 right-0 bg-thai-gold/20 rounded-b-xl p-1">
+        <div className="absolute bottom-0 left-0 right-0 bg-primary/20 rounded-b-xl p-1">
           <p className="text-xs text-gray-800 font-medium text-center">
             {t('locationDescription')}
           </p>
