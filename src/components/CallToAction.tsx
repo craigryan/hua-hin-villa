@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { ThaiPattern, DecorativeBorder } from './ThaiDecorations';
 
 interface CallToActionProps {
   headline: string;
@@ -17,40 +16,20 @@ const CallToAction: React.FC<CallToActionProps> = ({
 }) => {
   const t = useTranslations('HomePage.cta');
   return (
-    <section className='relative py-20 bg-thai-teal text-white text-center overflow-hidden'>
-      {/* Thai pattern background */}
-      <ThaiPattern 
-        size="large" 
-        color="gold" 
-        opacity={0.1} 
-        className="absolute inset-0" 
-      />
-      
-      {/* Gradient overlay for depth */}
-      <div className='absolute inset-0 bg-gradient-to-br from-thai-teal via-thai-teal-dark to-thai-teal opacity-90' />
-      
-      <div className='relative z-10 container mx-auto px-4 max-w-4xl'>
-        {/* Decorative top border */}
-        <DecorativeBorder 
-          position="top" 
-          color="gold" 
-          className="mb-12"
-        />
-        
-        <h2 className='text-4xl md:text-5xl font-bold mb-12 leading-tight'>
-          <span className='bg-gradient-to-r from-thai-gold to-thai-gold-light bg-clip-text text-transparent'>
-            {headline}
-          </span>
+    <section className='relative py-24 bg-accent text-white text-center'>
+      <div className='container mx-auto px-6 max-w-4xl'>
+        <h2 className='text-3xl md:text-4xl font-light mb-8 leading-tight text-neutral-100'>
+          {headline}
         </h2>
         
-        <div className='space-y-6'>
+        <div className='space-y-8'>
           <Link
             href={buttonLink}
-            className='group inline-flex items-center bg-thai-gold hover:bg-thai-gold-light text-thai-teal-dark font-bold py-4 px-10 rounded-full text-xl shadow-xl hover:shadow-2xl transition-all duration-300'
+            className='group inline-flex items-center bg-primary hover:bg-primary-light text-white font-medium py-3 px-8 rounded text-base transition-all duration-300 hover:shadow-lg'
           >
             <span className='mr-2'>{buttonText}</span>
             <svg 
-              className='w-6 h-6 group-hover:translate-x-1 transition-transform duration-300' 
+              className='w-5 h-5 group-hover:translate-x-1 transition-transform duration-300' 
               fill='currentColor' 
               viewBox='0 0 20 20'
             >
@@ -58,17 +37,10 @@ const CallToAction: React.FC<CallToActionProps> = ({
             </svg>
           </Link>
           
-          <p className='text-thai-cream text-lg font-light max-w-2xl mx-auto mt-8'>
+          <p className='text-neutral-300 text-base font-light max-w-2xl mx-auto mt-6'>
             {t('description')}
           </p>
         </div>
-        
-        {/* Decorative bottom border */}
-        <DecorativeBorder 
-          position="bottom" 
-          color="gold" 
-          className="mt-16"
-        />
       </div>
     </section>
   );

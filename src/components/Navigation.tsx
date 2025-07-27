@@ -18,10 +18,9 @@ const NavButton = ({
   label: string;
 }) => {
   const baseStyles = `
-    p-2 rounded-full
-    bg-white/80 backdrop-blur-sm
-    hover:bg-white hover:shadow-md
-    active:bg-gray-100
+    p-2 rounded
+    hover:bg-neutral-100
+    active:bg-neutral-200
     transition-all duration-200 ease-in-out
     flex items-center justify-center
   `;
@@ -58,7 +57,7 @@ const Navigation = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            className="w-5 h-5 text-gray-600"
+            className="w-5 h-5 text-neutral-600"
           >
             <path
               strokeLinecap="round"
@@ -69,34 +68,32 @@ const Navigation = () => {
           </svg>
         </NavButton>
       )}
-      <div className="flex items-center space-x-3">
-        <NavButton href="/" label="Home">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            className="w-5 h-5 text-gray-600"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-            />
-          </svg>
-        </NavButton>
-        <Link href="/" className="flex items-center space-x-2 text-gray-800 font-semibold text-lg hover:text-thai-gold transition-colors duration-200">
-          <span>{t('propertyName')}</span>
-          <Image
-            src="/images/flags/th.svg"
-            alt="Thailand flag"
-            width={20}
-            height={20}
-            className="w-5 h-5"
+      <NavButton href="/" label="Home">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          className="w-5 h-5 text-neutral-600"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
           />
-        </Link>
-      </div>
+        </svg>
+      </NavButton>
+      <Link href="/" className="flex items-center space-x-1 text-neutral-600 text-sm hover:text-primary transition-colors duration-200">
+        <span>{t('locationName')}</span>
+        <Image
+          src="/images/flags/th.svg"
+          alt="Thailand flag"
+          width={16}
+          height={16}
+          className="w-4 h-4"
+        />
+      </Link>
     </div>
   );
 };

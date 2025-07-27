@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { ThaiPattern, DecorativeBorder, WaveDivider } from './ThaiDecorations';
+import { SimpleDivider, AccentLine, SubtleBackground } from './MinimalDecorations';
 import FeatureTile from './FeatureTile';
 
 interface PropertyOverviewProps {
@@ -16,37 +16,24 @@ const PropertyOverview: React.FC<PropertyOverviewProps> = ({
 }) => {
   const t = useTranslations('HomePage.features');
   return (
-    <section className='relative py-20 bg-thai-subtle text-center overflow-hidden'>
-      {/* Thai pattern background */}
-      <ThaiPattern 
-        size="medium" 
-        color="teal" 
-        opacity={0.05} 
-        className="absolute inset-0" 
-      />
+    <section className='relative py-24 bg-neutral-50 text-center overflow-hidden'>
+      {/* Subtle background gradient */}
+      <SubtleBackground variant="light" opacity={0.3} />
       
-      <div className='relative z-10 container mx-auto px-4 max-w-screen-lg'>
-        {/* Decorative top border */}
-        <DecorativeBorder 
-          position="top" 
-          color="gold" 
-          className="mb-12"
-        />
-        
-        <h2 className='text-3xl md:text-4xl font-bold mb-8 text-thai-teal-dark'>
-          <span className='relative'>
-            {title}
-            <div className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-thai-gold rounded-full' />
-          </span>
+      <div className='relative z-10 container mx-auto px-6 max-w-screen-lg'>
+        <h2 className='text-3xl md:text-4xl font-light mb-4 text-neutral-800'>
+          {title}
         </h2>
         
+        <AccentLine position="center" width="medium" className="mb-12" />
+        
         <div className='max-w-4xl mx-auto'>
-          <p className='text-xl md:text-2xl text-thai-teal leading-relaxed font-light mb-12'>
+          <p className='text-lg md:text-xl text-neutral-600 leading-relaxed font-light mb-16'>
             {description}
           </p>
           
           {/* Feature highlights */}
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-16'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-10 mt-20'>
             <FeatureTile
               icon="🏊"
               title={t('pool.title')}
@@ -66,18 +53,6 @@ const PropertyOverview: React.FC<PropertyOverviewProps> = ({
             />
           </div>
         </div>
-        
-        {/* Decorative bottom border */}
-        <DecorativeBorder 
-          position="bottom" 
-          color="gold" 
-          className="mt-16"
-        />
-      </div>
-      
-      {/* Bottom wave transition */}
-      <div className='absolute bottom-0 left-0 right-0'>
-        <WaveDivider color="teal" flip={true} />
       </div>
     </section>
   );

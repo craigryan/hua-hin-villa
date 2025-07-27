@@ -5,7 +5,7 @@
     "title": "Something went wrong!"
   },
   "Manifest": {
-    "name": "บ้านหัวหินวิลล่า"
+    "name": "บ้านลมเย็น"
   },
   "HomePage": {
     "headline": "ค้นพบการพักผ่อนสุดหรูที่หัวหิน",
@@ -132,15 +132,17 @@
     "guestTitle": "แกลเลอรี่เกสต์เฮาส์"
   },
   "Navigation": {
-    "propertyName": "บ้านหัวหินวิลล่า, ประเทศไทย"
+    "locationName": "หัวหิน, ประเทศไทย",
+    "houseName": "บ้านลมเย็น",
+    "houseTagline": "วิลล่าส่วนตัวสำหรับวันหยุด"
   },
   "ThailandMap": {
     "propertyLocation": "ตำแหน่งที่พัก",
     "locationDescription": "วังปง ห่างจากหัวหิน 5 กิโลเมตรทางใต้"
   },
   "footer": {
-    "title": "บ้านหัวหินวิลล่า",
-    "copyright": "บ้านหัวหินวิลล่า",
+    "title": "บ้านลมเย็น",
+    "copyright": "บ้านลมเย็น",
     "allRightsReserved": "สงวนลิขสิทธิ์",
     "tagline": "สัมผัสประสบการณ์หรูหราในใจกลางหัวหิน"
   }

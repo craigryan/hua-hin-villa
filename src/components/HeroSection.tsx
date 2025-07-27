@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import { WaveDivider } from './ThaiDecorations';
 import ThailandMap from './ThailandMap';
 
 interface HeroSectionProps {
@@ -28,28 +27,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       />
       
       {/* Subtle gradient overlay for text readability */}
-      <div className='absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10' />
+      <div className='absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10' />
       
       {/* Thailand Map - Top Right Corner */}
-      <div className='absolute top-4 right-4 z-30 hidden md:block'>
+      <div className='absolute top-6 right-6 z-30 hidden md:block'>
         <ThailandMap />
       </div>
       
       {/* Content overlay */}
-      <div className='relative z-20 text-center px-4 max-w-4xl mx-auto'>
-        <div className='bg-black/30 backdrop-blur-sm p-8 rounded-2xl border border-thai-gold/40'>
-          <h1 className='text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg'>
-            {headline}
-          </h1>
-          <p className='text-lg md:text-xl drop-shadow-lg font-light leading-relaxed text-thai-cream'>
-            {subtitle}
-          </p>
-        </div>
-      </div>
-      
-      {/* Bottom wave transition */}
-      <div className='absolute bottom-0 left-0 right-0 z-30'>
-        <WaveDivider color="cream" />
+      <div className='relative z-20 text-center px-6 max-w-4xl mx-auto'>
+        <h1 className='text-4xl md:text-5xl font-light mb-6 text-white'>
+          {headline}
+        </h1>
+        <p className='text-lg md:text-xl font-light leading-relaxed text-white/90 max-w-2xl mx-auto'>
+          {subtitle}
+        </p>
       </div>
     </div>
   );

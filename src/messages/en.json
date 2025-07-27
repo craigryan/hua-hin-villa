@@ -5,7 +5,7 @@
     "title": "Something went wrong!"
   },
   "Manifest": {
-    "name": "Ban Hua Hin Villa"
+    "name": "Baan Lom Yen"
   },
   "HomePage": {
     "headline": "Discover Your Luxury Escape in Hua Hin",
@@ -132,15 +132,17 @@
     "guestTitle": "Guest House Gallery"
   },
   "Navigation": {
-    "propertyName": "Ban Hua Hin Villa, Thailand"
+    "locationName": "Hua Hin, Thailand",
+    "houseName": "Baan Lom Yen",
+    "houseTagline": "Private Holiday Villa"
   },
   "ThailandMap": {
     "propertyLocation": "Property Location",
     "locationDescription": "Wang Pong, 5km south of Hua Hin"
   },
   "footer": {
-    "title": "Ban Hua Hin Villa",
-    "copyright": "Ban Hua Hin Villa",
+    "title": "Baan Lom Yen",
+    "copyright": "Baan Lom Yen",
     "allRightsReserved": "All rights reserved",
     "tagline": "Experience luxury in the heart of Hua Hin"
   }

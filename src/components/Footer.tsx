@@ -1,37 +1,23 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { ThaiPattern } from './ThaiDecorations';
+import { SimpleDivider } from './MinimalDecorations';
 
 // Minimal Footer component
 const Footer: React.FC = () => {
   const t = useTranslations('footer');
 
   return (
-    <footer 
-      className='relative text-white py-12 text-center mt-auto overflow-hidden border-t-4'
-      style={{ 
-        backgroundColor: '#1F6B6B',
-        borderTopColor: '#D4AF37'
-      }}
-    >
-      {/* Thai pattern background */}
-      <ThaiPattern 
-        size="small" 
-        color="gold" 
-        opacity={0.08} 
-        className="absolute inset-0" 
-      />
-      
-      <div className='relative z-10 container mx-auto px-4'>
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold mb-2 text-thai-cream">{t('title')}</h3>
-          <div className="w-16 h-1 bg-thai-gold mx-auto rounded-full mb-4" />
+    <footer className='bg-neutral-100 py-16 text-center mt-auto'>
+      <div className='container mx-auto px-6'>
+        <SimpleDivider className="mb-8" color="neutral" />
+        <div className="mb-6">
+          <h3 className="text-base font-medium mb-2 text-neutral-700">{t('title')}</h3>
         </div>
-        <p className='text-thai-cream/90 text-lg'>
+        <p className='text-neutral-600 text-sm'>
           &copy; {new Date().getFullYear()} {t('copyright')}. {t('allRightsReserved')}.
         </p>
-        <div className="mt-6 pt-4 border-t border-thai-gold/30">
-          <p className="text-thai-cream/70 text-sm">
+        <div className="mt-4">
+          <p className="text-neutral-500 text-sm">
             {t('tagline')}
           </p>
         </div>

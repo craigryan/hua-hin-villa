@@ -1,11 +1,17 @@
 import React from 'react';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Lato } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Navigation from '@/components/Navigation';
+
+const lato = Lato({
+  weight: ['300', '400', '700'],
+  variable: '--font-lato',
+  subsets: ['latin'],
+});
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -40,13 +46,25 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${lato.variable} ${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
       >
         <NextIntlClientProvider messages={messages} locale={locale}>
           <div className="min-h-screen">
-            <header className="flex justify-between items-center p-4 bg-gray-200">
-              <Navigation />
-              <LanguageSwitcher />
+            <header className="relative grid grid-cols-3 items-center p-6 bg-white border-b border-neutral-200">
+              <div className="justify-self-start">
+                <Navigation />
+              </div>
+              <div className="justify-self-center text-center">
+                <h1 className="text-2xl md:text-3xl font-light tracking-wider text-neutral-800">
+                  {messages.Navigation?.houseName || 'Baan Lom Yen'}
+                </h1>
+                <p className="text-xs md:text-sm text-neutral-500 mt-1 tracking-wide">
+                  {messages.Navigation?.houseTagline || 'Cool Breeze House'}
+                </p>
+              </div>
+              <div className="justify-self-end">
+                <LanguageSwitcher />
+              </div>
             </header>
             <main className="flex-1">
               {children}

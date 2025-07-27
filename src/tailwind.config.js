@@ -3,7 +3,7 @@ module.exports = {
     content: ['./src/**/*.{tsx,css}'],
     theme: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Lato', 'Inter', 'sans-serif'],
         mono: [
           'Monaco',
           'ui-monospace',
@@ -23,30 +23,32 @@ module.exports = {
       },
       extend: {
         colors: {
-          slate: {
-            850: 'hsl(222deg 47% 16%)'
+          primary: {
+            DEFAULT: '#a8883a',
+            light: '#c5a85e',
+            dark: '#8b6f2e'
           },
-          primary: '#5fc3e7',
-          // Thai-inspired color palette
-          thai: {
-            gold: '#D4AF37',
-            'gold-light': '#E6C555',
-            'gold-dark': '#B8941F',
-            teal: '#2E8B8B',
-            'teal-light': '#4AA0A0',
-            'teal-dark': '#1F6B6B',
-            cream: '#FFF8DC',
-            'cream-dark': '#F5F0C8',
-            burgundy: '#8B1538',
-            'burgundy-light': '#A03450',
-            coral: '#FF7F7F',
-            'coral-light': '#FF9999'
+          accent: {
+            DEFAULT: '#2c2c2c',
+            light: '#4a4a4a',
+            dark: '#1a1a1a'
+          },
+          neutral: {
+            50: '#fafaf9',
+            100: '#f5f5f4',
+            200: '#e7e5e4',
+            300: '#d6d3d1',
+            400: '#a8a29e',
+            500: '#78716c',
+            600: '#57534e',
+            700: '#44403c',
+            800: '#292524',
+            900: '#1c1917'
           }
         },
         backgroundImage: {
-          'thai-gradient': 'linear-gradient(135deg, #D4AF37 0%, #2E8B8B 100%)',
-          'thai-hero': 'linear-gradient(135deg, rgba(212, 175, 55, 0.8) 0%, rgba(46, 139, 139, 0.6) 100%)',
-          'thai-subtle': 'linear-gradient(180deg, #FFF8DC 0%, #F5F0C8 100%)'
+          'gradient-subtle': 'linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%)',
+          'gradient-dark': 'linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)'
         }
       }
     },
