@@ -16,7 +16,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
 }) => {
   const t = useTranslations('HomePage.cta');
   return (
-    <section className='relative py-24 bg-accent text-white text-center'>
+    <section className='relative py-24 text-white text-center' style={{ backgroundColor: '#2c2c2c' }}>
       <div className='container mx-auto px-6 max-w-4xl'>
         <h2 className='text-3xl md:text-4xl font-light mb-8 leading-tight text-neutral-100'>
           {headline}

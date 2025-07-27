@@ -43,16 +43,34 @@
 
 html {
   scroll-behavior: smooth;
+  /* Improve text rendering */
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Base font size for better scaling */
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Lato', 'Inter', sans-serif;
+  font-family: 'Lato', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Improve font rendering on Windows */
+  -webkit-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
 }
 
 /* Text shadow utilities */
@@ -95,6 +113,53 @@ body {
   transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Typography utilities for better readability */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Responsive text sizes with fluid scaling */
+.text-responsive-sm {
+  font-size: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
+}
+
+.text-responsive-base {
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+}
+
+.text-responsive-lg {
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+}
+
+.text-responsive-xl {
+  font-size: clamp(1.25rem, 1.125rem + 0.75vw, 1.5rem);
+}
+
+.text-responsive-2xl {
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+}
+
+.text-responsive-3xl {
+  font-size: clamp(1.875rem, 1.5rem + 1.5vw, 2.5rem);
+}
+
+.text-responsive-4xl {
+  font-size: clamp(2.25rem, 1.75rem + 2vw, 3rem);
+}
+
+/* Improved readability for body text */
+.prose-optimize {
+  max-width: 65ch;
+  line-height: 1.75;
+  letter-spacing: 0.015em;
+}
+
+/* High contrast text for better visibility */
+.text-high-contrast {
+  color: var(--foreground);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
 /* Subtle shadows */
 .shadow-soft {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -112,4 +177,54 @@ body {
 .hover-lift:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Font weight adjustments for different elements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300; /* Light weight for headings */
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Slightly heavier for smaller headings */
+h4, h5, h6 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Body text optimization */
+p {
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* Strong emphasis */
+strong, b {
+  font-weight: 600; /* Not too heavy for better readability */
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  text-underline-offset: 0.2em;
+}
+
+/* Small text */
+small, .text-sm {
+  letter-spacing: 0.025em;
+  font-weight: 400;
+}
+
+/* Ensure good contrast for light text on dark backgrounds */
+.text-white, .text-neutral-100, .text-neutral-200 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+
+/* Specific adjustments for very large text */
+.text-4xl, .text-5xl, .text-6xl,
+.text-fluid-4xl, .text-fluid-5xl {
+  font-weight: 200; /* Ultra-light for very large text */
+  letter-spacing: -0.03em;
 }
