@@ -20,10 +20,10 @@ const RentalOption = ({
   <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-200 p-6 group">
     <div className="flex items-center mb-3">
       <span className="text-2xl mr-3">{icon}</span>
-      <h3 className="text-xl font-semibold text-gray-800 group-hover:text-thai-teal-dark transition-colors">{title}</h3>
+      <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors">{title}</h3>
     </div>
     <p className="text-gray-600 mb-4 leading-relaxed">{description}</p>
-    <div className="rounded-lg p-3 border-l-4" style={{ backgroundColor: '#1F6B6B', borderLeftColor: '#D4AF37' }}>
+    <div className="rounded-lg p-3 border-l-4" style={{ backgroundColor: '#2c2c2c', borderLeftColor: '#a8883a' }}>
       <p className="text-lg font-bold text-white">{price}</p>
     </div>
   </div>
@@ -53,7 +53,7 @@ const PropertyCard = ({
       <h3 className="text-white text-xl font-semibold mb-3">{title}</h3>
       <Link
         href={link}
-        className="inline-flex items-center bg-thai-gold hover:bg-thai-gold-light text-thai-teal-dark font-medium px-4 py-2 rounded-lg transition-colors duration-200 text-sm"
+        className="inline-flex items-center bg-primary hover:bg-primary-light text-white font-medium px-4 py-2 rounded transition-colors duration-200 text-sm"
       >
         {buttonText}
         <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,13 +68,13 @@ export default function SiteOptionsPage() {
   const t = useTranslations('SiteOptions');
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-thai-cream/30 to-white">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom, #f5f5f4 0%, #ffffff 100%)' }}>
       <div className="max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg">{t('title')}</h1>
-          <div className="w-24 h-1 bg-thai-gold mx-auto rounded-full mb-6" />
-          <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
+          <h1 className="text-3xl md:text-4xl font-light text-neutral-800 mb-6">{t('title')}</h1>
+          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6" />
+          <p className="text-lg md:text-xl text-neutral-600 max-w-4xl mx-auto leading-relaxed">
             {t('subtitle')}
           </p>
         </div>
@@ -104,7 +104,7 @@ export default function SiteOptionsPage() {
         {/* Property Navigation Cards */}
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">{t('exploreProperties')}</h2>
-          <div className="w-20 h-1 bg-thai-teal mx-auto rounded-full mb-6" />
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6" />
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
             {t('exploreDescription')}
           </p>
