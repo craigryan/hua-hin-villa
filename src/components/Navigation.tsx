@@ -49,7 +49,7 @@ const Navigation = () => {
   const showBackButton = pathname && pathname.split('/').length > 2;
 
   return (
-    <div className="flex items-center space-x-3">
+    <div className="flex items-center space-x-2">
       {showBackButton && (
         <NavButton onClick={() => window.history.back()} label="Go back">
           <svg
@@ -84,7 +84,8 @@ const Navigation = () => {
           />
         </svg>
       </NavButton>
-      <Link href="/" className="flex items-center space-x-1 text-neutral-600 text-sm hover:text-primary transition-colors duration-200">
+      {/* Hide location text on mobile, show on tablet and up */}
+      <Link href="/" className="hidden sm:flex items-center space-x-1 text-neutral-600 text-sm hover:text-primary transition-colors duration-200">
         <span>{t('locationName')}</span>
         <Image
           src="/images/flags/th.svg"

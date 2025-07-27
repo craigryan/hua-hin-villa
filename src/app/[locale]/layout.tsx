@@ -50,20 +50,39 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       >
         <NextIntlClientProvider messages={messages} locale={locale}>
           <div className="min-h-screen">
-            <header className="relative grid grid-cols-3 items-center p-6 bg-white border-b border-neutral-200">
-              <div className="justify-self-start">
-                <Navigation />
+            <header className="relative bg-white border-b border-neutral-200">
+              {/* Mobile layout */}
+              <div className="sm:hidden">
+                <div className="flex justify-between items-center p-4">
+                  <Navigation />
+                  <LanguageSwitcher />
+                </div>
+                <div className="text-center pb-4">
+                  <h1 className="text-xl font-light tracking-wider text-neutral-800">
+                    {messages.Navigation?.houseName || 'Baan Lom Yen'}
+                  </h1>
+                  <p className="text-xs text-neutral-500 mt-1 tracking-wide">
+                    {messages.Navigation?.houseTagline || 'Private Holiday Villa'}
+                  </p>
+                </div>
               </div>
-              <div className="justify-self-center text-center">
-                <h1 className="text-2xl md:text-3xl font-light tracking-wider text-neutral-800">
-                  {messages.Navigation?.houseName || 'Baan Lom Yen'}
-                </h1>
-                <p className="text-xs md:text-sm text-neutral-500 mt-1 tracking-wide">
-                  {messages.Navigation?.houseTagline || 'Cool Breeze House'}
-                </p>
-              </div>
-              <div className="justify-self-end">
-                <LanguageSwitcher />
+              
+              {/* Desktop layout */}
+              <div className="hidden sm:grid grid-cols-3 items-center p-6">
+                <div className="justify-self-start">
+                  <Navigation />
+                </div>
+                <div className="justify-self-center text-center">
+                  <h1 className="text-2xl md:text-3xl font-light tracking-wider text-neutral-800">
+                    {messages.Navigation?.houseName || 'Baan Lom Yen'}
+                  </h1>
+                  <p className="text-xs md:text-sm text-neutral-500 mt-1 tracking-wide">
+                    {messages.Navigation?.houseTagline || 'Private Holiday Villa'}
+                  </p>
+                </div>
+                <div className="justify-self-end">
+                  <LanguageSwitcher />
+                </div>
               </div>
             </header>
             <main className="flex-1">
