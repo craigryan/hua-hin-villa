@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { SimpleDivider, AccentLine, SubtleBackground } from './MinimalDecorations';
+import { AccentLine, SubtleBackground } from './MinimalDecorations';
 import FeatureTile from './FeatureTile';
 
 interface PropertyOverviewProps {

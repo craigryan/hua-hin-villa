@@ -28,7 +28,7 @@ const guestImages = [
   { src: '/images/guest_side.jpg', alt: 'Guest House Side View' },
 ];
 
-const GalleryPage: React.FC<PageProps> = async ({ params, searchParams }) => {
+const GalleryPage: React.FC<PageProps> = async ({ searchParams }) => {
   // const { locale } = await params;
   const searchParamsResolved = await searchParams;
   const galleryType = searchParamsResolved?.type || 'villa'; // Default to villa if no type specified
