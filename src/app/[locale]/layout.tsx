@@ -56,10 +56,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
               <div className="sm:hidden">
                 <div className="flex justify-between items-center p-4">
                   <Navigation />
+                  <ThaiRoofIcon className="w-10 h-10 text-primary" />
                   <LanguageSwitcher />
                 </div>
-                <div className="text-center pb-4">
-                  <ThaiRoofIcon className="w-8 h-8 text-primary mx-auto mb-2" />
+                <div className="text-center pb-4 px-4">
                   <h1 className="text-xl font-light tracking-wider text-neutral-800">
                     {messages.Navigation?.houseName || 'Baan Lom Yen'}
                   </h1>
@@ -75,7 +75,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
                   <Navigation />
                 </div>
                 <div className="justify-self-center text-center">
-                  <ThaiRoofIcon className="w-10 h-10 text-primary mx-auto mb-2" />
+                  <ThaiRoofIcon className="w-12 h-12 text-primary mx-auto mb-2" />
                   <h1 className="text-2xl md:text-3xl font-light tracking-wider text-neutral-800">
                     {messages.Navigation?.houseName || 'Baan Lom Yen'}
                   </h1>
