@@ -25,7 +25,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
         <div className='space-y-8'>
           <Link
             href={buttonLink}
-            className='group inline-flex items-center bg-primary hover:bg-primary-light text-white font-medium py-3 px-8 rounded text-base transition-all duration-300 hover:shadow-lg'
+            className='group inline-flex items-center bg-white hover:bg-neutral-100 text-neutral-800 font-semibold py-4 px-10 rounded-lg text-base transition-all duration-300 hover:shadow-xl transform hover:scale-105'
           >
             <span className='mr-2'>{buttonText}</span>
             <svg 

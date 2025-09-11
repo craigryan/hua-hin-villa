@@ -144,6 +144,145 @@
     "title": "Baan Lom Yen",
     "copyright": "Baan Lom Yen",
     "allRightsReserved": "All rights reserved",
-    "tagline": "Experience luxury in the heart of Hua Hin"
+    "tagline": "Experience luxury in the heart of Hua Hin",
+    "theProperty": "The Property",
+    "contact": "Contact",
+    "rentalRequirements": "Rental Requirements",
+    "termsAndConditions": "Terms and Conditions",
+    "contactUs": "Contact Us",
+    "socialMedia": "Social Media"
+  },
+  "rentalRequirements": {
+    "title": "Rental Requirements",
+    "minimumStay": {
+      "heading": "Minimum Stay",
+      "description": "Our property requires a minimum stay of 3 nights during regular season and 5 nights during peak season (December 15 - January 15 and Songkran Festival). This ensures our guests have enough time to truly relax and enjoy all the amenities our villa has to offer."
+    },
+    "booking": {
+      "heading": "Booking Process",
+      "description": "To secure your reservation, we require a 50% deposit at the time of booking. The remaining balance is due 30 days before your arrival date. We accept bank transfers and major credit cards for your convenience."
+    },
+    "guests": {
+      "heading": "Number of Guests",
+      "description": "The main villa accommodates up to 8 guests comfortably, while the guest house is perfect for up to 4 guests. Additional guests may be accommodated with prior arrangement for an extra charge of ฿1,000 per person per night."
+    },
+    "identity": {
+      "heading": "Guest Identification",
+      "description": "We value and cherish our property as anyone would their home, and we trust you understand the importance of maintaining its security and integrity. To ensure the safety and comfort of all our guests, we kindly require potential guests to provide full identification before booking confirmation. This includes complete contact details, your permanent residential address, and a clear photo of a valid international identification document such as a passport. We appreciate your understanding and cooperation in helping us maintain the high standards of our property."
+    },
+    "payment": {
+      "heading": "Payment Terms",
+      "description": "All prices are quoted in Thai Baht and include standard utilities, daily housekeeping, and pool maintenance. A security deposit of ฿20,000 is required and will be refunded within 7 days after checkout, subject to property inspection."
+    },
+    "cancellation": {
+      "heading": "Cancellation Policy",
+      "description": "Cancellations made more than 60 days before arrival will receive a full refund minus a ฿5,000 processing fee. Cancellations between 30-60 days will receive a 50% refund. No refunds for cancellations made less than 30 days before arrival."
+    },
+    "checkIn": {
+      "heading": "Check-in and Check-out",
+      "description": "Check-in time is 3:00 PM and check-out is 11:00 AM. Early check-in or late check-out may be available upon request, subject to availability and may incur additional charges."
+    }
+  },
+  "termsAndConditions": {
+    "title": "Terms and Conditions",
+    "agreement": {
+      "heading": "Rental Agreement",
+      "description": "By booking our property, you agree to these terms and conditions which form a legally binding agreement between you (the Guest) and Baan Lom Yen (the Property Owner). These terms apply to all bookings and stays at our villa."
+    },
+    "propertyUse": {
+      "heading": "Property Use",
+      "description": "The property is for residential vacation use only. Commercial activities, events, or parties are strictly prohibited without prior written consent. The maximum number of guests must not exceed the agreed number at booking."
+    },
+    "houseRules": {
+      "heading": "House Rules",
+      "description": "Guests must respect the property and neighbors. Quiet hours are from 10 PM to 8 AM. Smoking is only permitted in designated outdoor areas. Pets are not allowed unless specifically agreed upon in advance."
+    },
+    "liability": {
+      "heading": "Liability and Insurance",
+      "description": "The Property Owner is not responsible for any accidents, injuries, or illness that occurs while on the premises. Guests are advised to obtain appropriate travel insurance. The use of all facilities including the pool is at the guest's own risk."
+    },
+    "damages": {
+      "heading": "Damages and Security",
+      "description": "Guests are responsible for any damage to the property caused by themselves or their party. Any damages will be charged to the guest and may be deducted from the security deposit. Major damages exceeding the deposit amount will be billed separately."
+    },
+    "privacy": {
+      "heading": "Privacy Policy",
+      "description": "We respect your privacy and protect your personal information in accordance with Thai data protection laws. Personal information collected during booking is used solely for reservation management and guest services."
+    },
+    "disputeResolution": {
+      "heading": "Dispute Resolution",
+      "description": "Any disputes arising from these terms shall be resolved through friendly negotiation. If resolution cannot be reached, disputes shall be subject to the jurisdiction of Thai courts in Prachuap Khiri Khan Province."
+    },
+    "modifications": {
+      "heading": "Terms Modifications",
+      "description": "These terms and conditions may be updated from time to time. The version in effect at the time of booking will apply to your stay. We recommend reviewing these terms before each booking."
+    }
+  },
+  "contactUs": {
+    "title": "Contact Us",
+    "getInTouch": {
+      "heading": "Get in Touch",
+      "description": "We're here to help make your stay at Baan Lom Yen unforgettable. Whether you have questions about our property, need assistance with your booking, or want to arrange special services, our team is ready to assist you."
+    },
+    "email": {
+      "heading": "Email",
+      "address": "info@baanLomyen.com",
+      "description": "For general inquiries and booking requests, email is the best way to reach us. We typically respond within 24 hours."
+    },
+    "phone": {
+      "heading": "Phone",
+      "number": "+66 (0) 32-123-456",
+      "description": "Call us directly for immediate assistance. Our office hours are 9:00 AM to 6:00 PM (Thailand time), Monday through Saturday."
+    },
+    "address": {
+      "heading": "Property Address",
+      "line1": "Baan Lom Yen Villa",
+      "line2": "Wang Pong, Hua Hin District",
+      "line3": "Prachuap Khiri Khan 77110",
+      "country": "Thailand"
+    },
+    "bookingInquiries": {
+      "heading": "Booking Inquiries",
+      "description": "For availability checks and reservations, please include your preferred dates, number of guests, and any special requirements in your message. We'll provide you with a detailed quote and availability confirmation."
+    },
+    "responseTime": {
+      "heading": "Response Time",
+      "description": "We strive to respond to all inquiries within 24 hours. During peak season, response times may be slightly longer. For urgent matters, please call us directly."
+    }
+  },
+  "socialMedia": {
+    "title": "Follow Us on Social Media",
+    "connectWithUs": {
+      "heading": "Connect With Us",
+      "description": "Stay updated with the latest news, special offers, and beautiful moments from Baan Lom Yen. Follow us on social media to see why our guests keep coming back to our slice of paradise in Hua Hin."
+    },
+    "facebook": {
+      "heading": "Facebook",
+      "link": "@BaanLomYenHuaHin",
+      "description": "Like our Facebook page for property updates, local event information, and exclusive deals for our followers."
+    },
+    "instagram": {
+      "heading": "Instagram",
+      "link": "@baanlomyen",
+      "description": "Follow us on Instagram for stunning photos of the property, Hua Hin beaches, and the beautiful Thai lifestyle."
+    },
+    "youtube": {
+      "heading": "YouTube",
+      "link": "Baan Lom Yen Villa",
+      "description": "Watch virtual tours of our property and discover the best attractions and activities in Hua Hin."
+    },
+    "whatsapp": {
+      "heading": "WhatsApp",
+      "link": "+66 (0) 95-123-4567",
+      "description": "Message us directly on WhatsApp for quick inquiries and instant communication during your stay."
+    },
+    "reviews": {
+      "heading": "Guest Reviews",
+      "description": "Read what our previous guests have to say about their experience at Baan Lom Yen. We're proud of our consistent 5-star ratings and the wonderful relationships we've built with our guests over the years."
+    },
+    "mediaPolicy": {
+      "heading": "Social Media & Photography Policy",
+      "description": "We kindly request that guests do not share photographs of the property or its specific location details on social media platforms without our express written permission. All images taken of the property, its interiors, exteriors, and grounds are subject to copyright. This policy helps us maintain the privacy and exclusivity of our villa for all guests. We appreciate your understanding and cooperation in respecting our property's confidentiality."
+    }
   }
 }
