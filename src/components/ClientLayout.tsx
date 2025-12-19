@@ -1,25 +1,32 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { usePathname } from 'next/navigation';
-import Navigation from '@/components/Navigation';
-import ThaiRoofIcon from '@/components/ThaiRoofIcon';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
+import React from "react";
+import { usePathname } from "next/navigation";
+import Navigation from "@/components/Navigation";
+import ThaiRoofIcon from "@/components/ThaiRoofIcon";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+
+interface Messages {
+  Navigation?: {
+    houseName?: string;
+    houseTagline?: string;
+  };
+}
 
 interface ClientLayoutProps {
-  messages: any;
+  messages: Messages;
 }
 
 export default function ClientLayout({ messages }: ClientLayoutProps) {
   const pathname = usePathname();
-  
+
   // Check if current page is one of the footer pages that open in new tabs
-  const isFooterPage = pathname && (
-    pathname.includes('/rental-requirements') ||
-    pathname.includes('/terms-and-conditions') ||
-    pathname.includes('/contact-us') ||
-    pathname.includes('/social-media')
-  );
+  const isFooterPage =
+    pathname &&
+    (pathname.includes("/rental-requirements") ||
+      pathname.includes("/terms-and-conditions") ||
+      pathname.includes("/contact-us") ||
+      pathname.includes("/social-media"));
 
   return (
     <header className="relative bg-white border-b border-neutral-200">
@@ -33,14 +40,14 @@ export default function ClientLayout({ messages }: ClientLayoutProps) {
         </div>
         <div className="text-center pb-4 px-4">
           <h1 className="text-xl font-light tracking-wider text-neutral-800">
-            {messages.Navigation?.houseName || 'Baan Lom Yen'}
+            {messages.Navigation?.houseName || "Baan Lom Yen"}
           </h1>
           <p className="text-xs text-neutral-500 mt-1 tracking-wide">
-            {messages.Navigation?.houseTagline || 'Private Holiday Villa'}
+            {messages.Navigation?.houseTagline || "Private Holiday Villa"}
           </p>
         </div>
       </div>
-      
+
       {/* Desktop layout */}
       <div className="hidden sm:grid grid-cols-3 items-center p-6">
         <div className="justify-self-start">
@@ -49,10 +56,10 @@ export default function ClientLayout({ messages }: ClientLayoutProps) {
         <div className="justify-self-center text-center">
           <ThaiRoofIcon className="w-12 h-12 text-primary mx-auto mb-2" />
           <h1 className="text-2xl md:text-3xl font-light tracking-wider text-neutral-800">
-            {messages.Navigation?.houseName || 'Baan Lom Yen'}
+            {messages.Navigation?.houseName || "Baan Lom Yen"}
           </h1>
           <p className="text-xs md:text-sm text-neutral-500 mt-1 tracking-wide">
-            {messages.Navigation?.houseTagline || 'Private Holiday Villa'}
+            {messages.Navigation?.houseTagline || "Private Holiday Villa"}
           </p>
         </div>
         <div className="justify-self-end">

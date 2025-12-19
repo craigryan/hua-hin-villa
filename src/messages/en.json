@@ -71,11 +71,11 @@
     "features": {
       "bedrooms": {
         "title": "4 Bedrooms",
-        "description": "Spacious bedrooms with premium bedding"
+        "description": "Spacious bedrooms with premium bedding, all with ensuite bathrooms"
       },
       "pool": {
         "title": "Private Pool",
-        "description": "Large swimming pool with poolside relaxation area"
+        "description": "Large swimming pool (10m/33ft)with poolside relaxation area"
       },
       "living": {
         "title": "Open Living Space",
@@ -90,7 +90,7 @@
         "description": "Climate control throughout the villa"
       },
       "wifi": {
-        "title": "High-Speed WiFi",
+        "title": "High-Speed fibre WiFi",
         "description": "Complimentary internet access"
       }
     }
@@ -124,6 +124,10 @@
       "wifi": {
         "title": "WiFi Access",
         "description": "Complimentary internet connection"
+      },
+      "pool": {
+        "title": "Pool access",
+        "description": "Subject to availability, access to main villa pool for an additional fee."
       }
     }
   },
