@@ -137,7 +137,7 @@ Place new public images under `public/images/` unless there is a strong reason n
 
 ### i18n workflow (copy and new strings)
 
-1. Add the same message keys to **`en.json`** and **`th.json`**.
+1. Add the same message keys to **`src/messages/en.json`** and **`src/messages/th.json`**.
 2. Use `useTranslations` / server message APIs as elsewhere in the app.
 3. Run **`npm run build`** to catch missing keys or type issues early.
 
@@ -182,7 +182,7 @@ Use **[shadcn/ui](https://ui.shadcn.com)** for **new generic, interactive UI**: 
 - **Setup and adds**: Follow the official **[Next.js installation](https://ui.shadcn.com/docs/installation/next)** and **[Tailwind v4](https://ui.shadcn.com/docs/tailwind-v4)** documentation. After `shadcn init`, add pieces with `npx shadcn@latest add <component>` (e.g. `button`, `input`, `dialog`).
 - **Location**: CLI output usually lands under **`src/components/ui/`** (see root **`components.json`** once initialized). The existing **`cn()`** / utils path may be added by the same flow—follow shadcn’s generated layout.
 - **Theming**: Map shadcn CSS variables to the site palette (**primary** should align with **`#5fc3e7`** and existing slate usage) so new controls match the villa brand.
-- **i18n**: User-visible strings still come from **`src/messages/en.json`** and **`th.json`**; wrap labels and button text with next-intl like the rest of the app.
+- **i18n**: User-visible strings still come from **`src/messages/en.json`** and **`src/messages/th.json`**; wrap labels and button text with next-intl like the rest of the app.
 - **Server vs client**: Many shadcn components are client components; keep interactive islands small and compose them inside pages or domain components as needed.
 
 **Domain-specific components** (hero, carousel, property layouts, navigation chrome) stay in **`src/components/`**; use shadcn primitives inside them when you need standard controls.
