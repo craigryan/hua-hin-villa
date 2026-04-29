@@ -1,173 +1,254 @@
-# CLAUDE.md - Codebase Documentation
+# CLAUDE.md — Codebase documentation
 
-## Project Overview
-**Hua Hin Villa** is a Next.js 15 property showcase website for a luxury villa rental in Hua Hin, Thailand. The site features bilingual support (English/Thai) and showcases the main villa, guest house, and rental options.
+**Other agents:** See [AGENTS.md](./AGENTS.md) for a short TL;DR and links here.
 
-## Tech Stack
-- **Framework**: Next.js 15.3.2 with App Router
+## Quick reference (TL;DR)
+
+- **Stack**: Next.js 15.x (App Router), React 19, TypeScript 5, Tailwind CSS 4, next-intl. Pin exact versions from **`package.json`**.
+- **Locales**: English (`en`, default, no URL prefix) and Thai (`th`, prefix `/th`).
+- **Copy**: Add or update keys in **`src/messages/en.json`** and **`src/messages/th.json`** together.
+- **Links / routing**: Import `Link`, `redirect`, `useRouter`, `usePathname` from **`@/i18n/navigation`** (see [Navigation rules](#navigation-rules)).
+- **Verify**: `npm run lint` and `npm run build` before treating work as complete; check **`/`** and **`/th`** for localized UI.
+- **Generic UI**: Use **[shadcn/ui](https://ui.shadcn.com)** for reusable interactive pieces (buttons, forms, dialogs, menus). See [shadcn for generic UI](#shadcn-for-generic-ui-components).
+
+## Project overview
+
+**Hua Hin Villa** is a Next.js property showcase site for a luxury villa rental in Hua Hin, Thailand. It supports English and Thai and covers the main villa, guest house, and rental options.
+
+## Tech stack
+
+- **Framework**: Next.js 15.x with App Router (see `package.json` for the resolved version)
+- **UI**: React 19
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS 4
-- **Internationalization**: next-intl 4.1.0
+- **Generic UI**: [shadcn/ui](https://ui.shadcn.com) (Radix-style primitives, Tailwind-first; add via CLI into the repo)
+- **Internationalization**: next-intl 4.x
 - **Fonts**: Geist Sans & Geist Mono (Google Fonts)
-- **Testing**: Jest + Playwright (configured but no test files present)
+- **Testing**: Jest + Playwright (configured; no test files yet)
 - **Linting**: ESLint with Next.js configuration
-- **Package Manager**: npm
+- **Formatting**: Prettier (devDependency)
+- **Package manager**: npm
 
-## Available Commands
+## Available commands
+
 ```bash
-# Development (with Turbopack)
+# Development (Turbopack)
 npm run dev
 
-# Production build
+# Production
 npm run build
 npm run start
 
 # Code quality
 npm run lint
+npm run lint:fix
 
-# Testing (configured but not implemented)
+# Testing (configured; suites not implemented yet)
 npm run test:playwright
 npm run test:jest
 ```
 
-## Project Structure
+Formatting touched files (optional but encouraged):
 
-### Core Configuration Files
-- `next.config.ts` - Next.js configuration with next-intl plugin
-- `next-intl.config.mjs` - Internationalization configuration
-- `tsconfig.json` - TypeScript configuration with path aliases (@/*)
-- `src/tailwind.config.js` - Tailwind CSS configuration with custom colors
-- `eslint.config.mjs` - ESLint configuration
-- `postcss.config.mjs` - PostCSS configuration for Tailwind
+```bash
+npx prettier --write path/to/file.tsx
+```
 
-### Directory Structure
+## Project structure
+
+### Core configuration
+
+- `next.config.ts` — Next.js + next-intl plugin
+- `next-intl.config.mjs` — i18n configuration
+- `tsconfig.json` — TypeScript; path alias **`@/*`** → `src/*`
+- `src/tailwind.config.js` — Tailwind + custom colors
+- `eslint.config.mjs` — ESLint
+- `postcss.config.mjs` — PostCSS for Tailwind
+
+### Locale routing and middleware
+
+When changing default locale, prefixes, or redirects, inspect:
+
+- `src/middleware.ts` — locale detection and routing
+- `src/i18n/routing.ts` — locale list and routing config
+- `next-intl.config.mjs` — next-intl wiring
+
+### App and source layout
+
 ```
 src/
-├── app/                    # Next.js App Router
+├── app/
 │   ├── [locale]/          # Localized routes (en/th)
-│   │   ├── layout.tsx     # Locale-specific layout with i18n provider
-│   │   ├── page.tsx       # Home page
-│   │   ├── enquiry/       # Contact/enquiry page
-│   │   ├── gallery/       # Photo gallery
-│   │   ├── guest-house/   # Guest house details
-│   │   ├── location/      # Location information
-│   │   ├── site-options/  # Site configuration page
-│   │   ├── the-villa/     # Main villa details
-│   │   └── [...rest]/     # Catch-all route
-│   ├── layout.tsx         # Root layout (minimal)
-│   ├── globals.css        # Global styles
-│   ├── not-found.tsx      # 404 page
-│   ├── manifest.ts        # Web app manifest
-│   ├── sitemap.ts         # SEO sitemap
-│   └── robots.txt         # SEO robots file
-├── components/            # React components
-│   ├── CallToAction.tsx
-│   ├── Footer.tsx
-│   ├── HeroSection.tsx
-│   ├── ImageCarousel.tsx
-│   ├── LanguageSwitcher.tsx
-│   ├── Navigation.tsx
-│   └── PropertyOverview.tsx
-├── i18n/                  # Internationalization setup
-│   ├── navigation.ts
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── contact-us/
+│   │   ├── enquiry/
+│   │   ├── gallery/
+│   │   ├── guest-house/
+│   │   ├── location/
+│   │   ├── rental-requirements/
+│   │   ├── site-options/
+│   │   ├── social-media/
+│   │   ├── terms-and-conditions/
+│   │   ├── the-villa/
+│   │   └── [...rest]/     # Catch-all
+│   ├── layout.tsx
+│   ├── globals.css
+│   ├── not-found.tsx
+│   ├── manifest.ts
+│   ├── sitemap.ts
+│   └── robots.txt
+├── components/
+├── i18n/
+│   ├── navigation.ts      # Locale-aware Link, router, etc.
 │   ├── request.ts
-│   └── routing.ts         # Route configuration for locales
-├── messages/              # Translation files
-│   ├── en.json           # English translations
-│   └── th.json           # Thai translations
-├── config.ts             # App configuration (port, host)
-├── i18n.ts              # i18n request configuration
-└── middleware.ts        # Next.js middleware for i18n routing
+│   └── routing.ts
+├── messages/
+│   ├── en.json
+│   └── th.json
+├── config.ts              # App config (e.g. port, host)
+├── i18n.ts
+└── middleware.ts
 ```
 
-### Static Assets
+### Static assets
+
 ```
 public/
-├── images/              # Property photos
-│   ├── flags/          # Language flags (gb.svg, th.svg)
-│   └── [various villa and property images]
-├── videos/             # Property videos
-│   └── beach_pan.mp4
-└── [various SVG icons]
+├── images/          # Property photos; flags in images/flags/
+├── videos/          # e.g. beach_pan.mp4
+└── …                # SVGs and other static files
 ```
 
-## Key Features & Architecture
+Place new public images under `public/images/` unless there is a strong reason not to. Keep filenames readable and consistent with existing assets.
+
+### App configuration
+
+- **`src/config.ts`** — Host/port and related app-level constants. Prefer this over scattering magic values when adding server or URL logic.
+
+## Key features and architecture
 
 ### Internationalization (i18n)
-- **Locales**: English (en) and Thai (th)
-- **Default locale**: English
-- **Routing**: Prefix-based for Thai, no prefix for English
-- **Configuration**: Uses next-intl with middleware for automatic locale detection
-- **Messages**: JSON-based translation files in `src/messages/`
 
-### App Router Structure
-- Uses Next.js 13+ App Router with nested layouts
-- Locale-based routing with `[locale]` dynamic segment
-- Catch-all route for handling undefined pages
-- Middleware handles locale routing and redirection
+- **Locales**: `en` and `th`
+- **Default locale**: English — URLs without a locale prefix are English
+- **Thai**: Prefix `/th` (e.g. `/th/gallery`)
+- **Messages**: `src/messages/en.json` and `src/messages/th.json`
+
+### i18n workflow (copy and new strings)
+
+1. Add the same message keys to **`en.json`** and **`th.json`**.
+2. Use `useTranslations` / server message APIs as elsewhere in the app.
+3. Run **`npm run build`** to catch missing keys or type issues early.
+
+### Navigation rules
+
+The app uses `createNavigation` from `next-intl`. **Do not** use `next/link` or `next/navigation` for normal in-app links and redirects unless you have a deliberate reason to bypass locale handling.
+
+Import from **`@/i18n/navigation`**:
+
+- `Link`
+- `redirect`
+- `useRouter`
+- `usePathname`
+- `getPathname`
+
+Defined in `src/i18n/navigation.ts` from `src/i18n/routing.ts`.
+
+### App Router
+
+- Nested layouts under `src/app`
+- Locale segment: `[locale]`
+- Catch-all `[...rest]` for unknown paths
+- Middleware coordinates locale detection and redirects
+
+### React: Server vs client components
+
+- **Default to Server Components** in `app/` unless you need client-only behavior.
+- Add **`'use client'`** when using React hooks, browser APIs, or client-only libraries.
+- Prefer small client **leaf** components for interactivity instead of marking large trees as client unnecessarily.
 
 ### Styling
-- **Tailwind CSS 4** with custom configuration
-- **Custom colors**: Primary (#5fc3e7), custom slate variants
-- **Fonts**: Geist Sans and Geist Mono from Google Fonts
-- **Responsive**: Container-centered design with custom breakpoints
 
-### Components Architecture
-- **Navigation**: Client-side component with back button logic
-- **LanguageSwitcher**: Handles locale switching
-- **Image components**: For property showcasing
-- **Reusable UI components**: Following consistent design patterns
+- Tailwind utility classes; custom theme in `src/tailwind.config.js`
+- **Primary accent**: `#5fc3e7` (and custom slate variants)
+- Global styles: `src/app/globals.css`
+- Layout: container-centered, responsive breakpoints
 
-## Development Guidelines
+### shadcn for generic UI components
 
-### File Organization
-- Use absolute imports with `@/*` alias pointing to `src/*`
-- Components are standalone in `/components` directory
-- Localized content goes in `/messages` as JSON
-- App Router pages follow the `[locale]/` structure
+Use **[shadcn/ui](https://ui.shadcn.com)** for **new generic, interactive UI**: buttons, text fields, labels, dialogs, dropdowns, selects, sheets, etc. It matches this stack (Tailwind CSS 4, React 19, Next.js App Router). Prefer shadcn over ad-hoc third-party component kits or duplicate primitives for the same roles.
 
-### Styling Conventions
-- Use Tailwind utility classes
-- Custom styles defined in `tailwind.config.js`
-- Global styles in `globals.css`
-- Component-specific styles using Tailwind classes
+- **Setup and adds**: Follow the official **[Next.js installation](https://ui.shadcn.com/docs/installation/next)** and **[Tailwind v4](https://ui.shadcn.com/docs/tailwind-v4)** documentation. After `shadcn init`, add pieces with `npx shadcn@latest add <component>` (e.g. `button`, `input`, `dialog`).
+- **Location**: CLI output usually lands under **`src/components/ui/`** (see root **`components.json`** once initialized). The existing **`cn()`** / utils path may be added by the same flow—follow shadcn’s generated layout.
+- **Theming**: Map shadcn CSS variables to the site palette (**primary** should align with **`#5fc3e7`** and existing slate usage) so new controls match the villa brand.
+- **i18n**: User-visible strings still come from **`src/messages/en.json`** and **`th.json`**; wrap labels and button text with next-intl like the rest of the app.
+- **Server vs client**: Many shadcn components are client components; keep interactive islands small and compose them inside pages or domain components as needed.
 
-### TypeScript Configuration
-- Strict mode enabled
-- Path aliases configured for clean imports
-- Next.js plugin integrated for optimal type checking
+**Domain-specific components** (hero, carousel, property layouts, navigation chrome) stay in **`src/components/`**; use shadcn primitives inside them when you need standard controls.
 
-## Testing Setup
-- **Jest**: Configured for unit testing (no tests written yet)
-- **Playwright**: Configured for e2e testing (no tests written yet)
-- Test scripts available but implementation pending
+### Components
+
+- **Navigation** — client-oriented navigation and back behavior
+- **LanguageSwitcher** — locale switching
+- **Image / carousel** — property media
+- Shared patterns: consistent spacing, typography, and color with existing pages
+
+## Development guidelines
+
+### File organization
+
+- Use the **`@/*`** alias for imports from `src/*` (configured in `tsconfig.json`).
+- Shared UI lives in `src/components/`.
+- Localized strings live in `src/messages/*.json`, not hard-coded in components (except rare exceptions).
+- Routed pages live under `src/app/[locale]/`.
+
+### TypeScript
+
+- Strict mode is enabled.
+- Path aliases: `@/*` → `src/*`.
+
+## Agent verification
+
+Before considering a change complete:
+
+1. **`npm run lint`**
+2. **`npm run build`**
+3. For routes, links, or translations: manually verify **English** (`/`) and **Thai** (`/th/...`) behavior.
+
+## Testing setup
+
+- **Jest** and **Playwright** are configured; test files are not yet added.
+- Scripts: `npm run test:jest`, `npm run test:playwright`.
 
 ## Deployment
-- Configured for Vercel deployment
-- Environment variables: PORT, VERCEL_PROJECT_PRODUCTION_URL
-- Production optimizations included via Next.js configuration
 
-## Content Structure
-The site showcases:
-- Main villa with luxury amenities
-- Guest house accommodation
-- Location benefits (proximity to Hua Hin attractions)
-- Photo gallery and virtual tour capabilities
-- Contact/enquiry functionality
+- Intended for **Vercel**.
+- Relevant env vars include **`PORT`** and **`VERCEL_PROJECT_PRODUCTION_URL`** (see deployment docs and `src/config.ts` as needed).
 
-## Git Repository Status
-- Current branch: `main`
-- Recent commits focus on language switching and i18n setup
-- Repository is clean with no uncommitted changes
+## Development server
 
-## Development Server
-- Runs on `http://localhost:3000` by default
-- Uses Turbopack for faster development builds
-- Hot reloading enabled for all file types
+- Default: **`http://localhost:3000`**
+- **`npm run dev`** uses Turbopack.
+- Hot reload enabled for typical source edits.
 
-## Notes for Future Development
-- Test suites need implementation (Jest/Playwright configured)
-- No existing cursor rules or copilot instructions
-- Consider adding form validation for enquiry page
-- Image optimization could be enhanced
-- SEO metadata could be expanded per page
+## Git workflow
+
+Do not assume branch or working tree state from this file. Run **`git status`** before starting substantive work and commit in focused units when appropriate.
+
+## Content structure (site)
+
+- Main villa and amenities
+- Guest house
+- Location and Hua Hin area
+- Gallery and media
+- Enquiry / contact
+
+## Backlog (do not implement unless requested)
+
+Ideas for later; **not** automatic scope for agents:
+
+- Add Jest / Playwright tests
+- Enquiry form validation
+- Further image optimization
+- Richer per-page SEO metadata
